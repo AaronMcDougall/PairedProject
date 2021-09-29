@@ -38,9 +38,9 @@ public class BarrierSpawn : MonoBehaviour
                 barrier.transform.rotation);
         }
 
-        if (x == barrierLength / barrierDivision)
+        /*if (x == barrierLength / barrierDivision)
         {
             Destroy(copy);
-        }
+        }*/
     }
 }
