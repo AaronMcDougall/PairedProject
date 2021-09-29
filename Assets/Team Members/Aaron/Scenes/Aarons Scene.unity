@@ -497,6 +497,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5980699443532529471, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"aggression":{"_value":50,"_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patience":{"_value":50,"_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"deviance":{"_value":50,"_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: -5980699443532529471, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._json
+      value: '{"_value":50,"_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: -5980699443532529471, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
+      propertyPath: _serializedVariables.Array.data[1]._json
+      value: '{"_value":50,"_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: -5980699443532529471, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
+      propertyPath: _serializedVariables.Array.data[2]._json
+      value: '{"_value":50,"_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 6552818041120484592, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
       propertyPath: m_Name
       value: Patron

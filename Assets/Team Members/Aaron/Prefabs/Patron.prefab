@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 5771075080901785201}
   - component: {fileID: 546992475266732804}
   - component: {fileID: 7845096089260514059}
-  - component: {fileID: 7845096089260514058}
-  - component: {fileID: 7845096089260514057}
+  - component: {fileID: 5988972710712346969}
+  - component: {fileID: -5980699443532529471}
   m_Layer: 0
   m_Name: Patron
   m_TagString: Untagged
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad228831125e8a4091e157fe0c976db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 7845096089260514059}
   turn: 0
 --- !u!54 &7845096089260514059
 Rigidbody:
@@ -188,7 +188,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7845096089260514058
+--- !u!114 &5988972710712346969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,11 +197,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6552818041120484592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450573aa7e2821148b81da6d9e329e53, type: 3}
+  m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
---- !u!114 &7845096089260514057
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":609.0001,"y":87.86516},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_position":{"x":190.0,"y":307.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_condition":{"valueA":{"_name":"patience","_targetVariableID":"7a588bf4-f39a-4f82-ab1c-b307796eb318"},"checkType":1,"valueB":{"_value":50},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":37.0,"y":480.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_action":{"log":{"_value":"Waiting"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},"_position":{"x":216.0,"y":481.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_position":{"x":616.0,"y":311.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"4"},{"_condition":{"valueA":{"_name":"deviance","_targetVariableID":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346"},"checkType":1,"valueB":{"_value":50},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":489.0,"y":482.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_action":{"log":{"_value":"Sneaking"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},"_position":{"x":670.0,"y":481.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"},{"_position":{"x":1033.0,"y":320.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"7"},{"_condition":{"valueA":{"_name":"aggression","_targetVariableID":"79d54592-9db9-4a16-b01b-0da8c89f89c2"},"checkType":3,"valueB":{"_value":75},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":926.0,"y":474.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"8"},{"_action":{"log":{"_value":"Fighting"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},"_position":{"x":1114.0,"y":476.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[{"name":"Aggression/Fighting","rect":{"xMin":865.0,"yMin":264.0,"xMax":1306.0,"yMax":583.0}},{"name":"Patience/Waiting","rect":{"xMin":17.0,"yMin":264.0,"xMax":402.0,"yMax":577.0}},{"name":"Deviance/Sneaking","rect":{"xMin":462.0,"yMin":265.0,"xMax":848.0,"yMax":573.0}}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.2
+    _category: 
+    _comments: 
+    _translation: {x: 93, y: 96}
+    _zoomFactor: 0.88117945
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 0
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: -5980699443532529471}
+--- !u!114 &-5980699443532529471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,8 +226,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6552818041120484592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad228831125e8a4091e157fe0c976db, type: 3}
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7845096089260514059}
-  turn: 0
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{"aggression":{"_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patience":{"_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"deviance":{"_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences: []
+  _serializedVariables:
+  - _json: '{"_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
