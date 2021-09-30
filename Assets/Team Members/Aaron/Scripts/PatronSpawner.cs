@@ -5,7 +5,13 @@ using UnityEngine;
 public class PatronSpawner : MonoBehaviour
 {
     public GameObject patronToSpawn;
-    public GameObject spawnLocation;
+    //public GameObject spawnLocation;
+
+    public float spawnXMin;
+    public float spawnXMax;
+
+    public float spawnZMin;
+    public float spawnZMax;
 
     public float amountToSpawn;
     
@@ -13,6 +19,7 @@ public class PatronSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -25,7 +32,7 @@ public class PatronSpawner : MonoBehaviour
     {
         for (int i = 0; i < amountToSpawn; i++)
         {
-            Instantiate(patronToSpawn, spawnLocation.transform.position, patronToSpawn.transform.rotation);
+            Instantiate(patronToSpawn, new Vector3(Random.Range(spawnXMin,spawnXMax), 1.65f, Random.Range(spawnZMin, spawnZMax)), patronToSpawn.transform.rotation);
         }
     }
 }
