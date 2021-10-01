@@ -48,7 +48,8 @@ public class CrazyShit : MonoBehaviour
 
     IEnumerator WanderAround()
     {
-        //change bool, start 5 second countdown, change bool back
-        yield return new WaitForSeconds(3);
+        goTo = false;
+        yield return new WaitForSeconds(5);
+        goTo = true;
     }
 }

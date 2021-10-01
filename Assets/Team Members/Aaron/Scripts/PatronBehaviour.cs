@@ -7,20 +7,37 @@ using UnityEngine.Events;
 
 public class PatronBehaviour : MonoBehaviour
 {
+    private PatronStats _patronStats;
     public event Action WaitingEvent;
-    public bool atWaypoint = false;
+    public event Action FightingEvent;
+
+    private void Update()
+    {
+        if (_patronStats.aggression >= 75)
+        {
+            FightingEvent?.Invoke();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Waypoint>())
+        {
+            WaitingEvent?.Invoke();
+        }
+    }
     
     public void WaitInLine()
     {
         //enter waiting state
         Debug.Log("Waiting in Line");
-        WaitingEvent?.Invoke();
     }
 
     public void Fight()
     {
         //enter fighting state
         Debug.Log("Starting a Fight");
+        
     }
 
     public void SneakAround()
@@ -29,19 +46,13 @@ public class PatronBehaviour : MonoBehaviour
         Debug.Log("Sneaking In");
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Waypoint>())
-        {
-            atWaypoint = true;
-        }
-    }
+
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Waypoint>())
+        /*if (other.GetComponent<Waypoint>())
         {
             atWaypoint = false;
-        }
+        }*/
     }
 }
