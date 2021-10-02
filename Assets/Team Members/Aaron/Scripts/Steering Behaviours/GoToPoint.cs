@@ -7,19 +7,23 @@ using Object = System.Object;
 
 public class GoToPoint : MonoBehaviour
 {
+    //whichever point to go to (bouncer or waypoint)
     public GameObject destinationLoc;
     public Vector3 destination;
 
+    //movement speed
     public float speed = 10f;
 
     public bool agro = false;
 
+    //finds first waypoint to go to
     void Start()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
         destination = destinationLoc.transform.position;
     }
 
+    //checks to see aggression level (via bool); acts accordingly
     void FixedUpdate()
     {
         if (agro == true)
@@ -32,6 +36,7 @@ public class GoToPoint : MonoBehaviour
         }
     }
 
+    //moves to (nearest) bouncer
     void GoToBouncer()
     {
         agro = true;
@@ -40,6 +45,7 @@ public class GoToPoint : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
+    //moves to waiting (nearest) waypoint
     void GoToWaypoint()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");

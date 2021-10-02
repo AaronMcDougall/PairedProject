@@ -18,7 +18,7 @@ public class PatronSetup : MonoBehaviour
         List<GameObject> PatronList = new List<GameObject>();
     }
 
-    // Start is called before the first frame update
+    //determines and assigns random values to all three stats on spawn
     void Awake()
     {
         patience = Random.Range(0, 100);

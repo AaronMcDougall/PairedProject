@@ -7,26 +7,51 @@ using UnityEngine;
 
 public class PatronActions : MonoBehaviour
 {
-    private void OnEnable()
+    public GameObject target;
+    public AudioSource swipeSound;
+
+    public bool fighting = false;
+    public bool inRange = false;
+
+    private void Start()
     {
-        FindObjectOfType<PatronBehaviour>().FightingEvent += FightingAction;
+        swipeSound = GetComponent<AudioSource>();
+    }
+    
+    //starts fighting when in collider of player
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("In Range to fight");
+            inRange = true;
+            target = other.gameObject;
+            StartCoroutine(FightSequence());
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    //stops fighting when out of range
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<PlayerModel>())
+        {
+            inRange = false;
+            target = null;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    //deals damage to player every (3) seconds as long as the target (player) has health
+    IEnumerator FightSequence()
     {
-        
-    }
-
-    void FightingAction()
-    {
-        //fighting things in here
-        //coroutine to attack every few seconds?
+        for (int i = 0; i < target.GetComponent<Health>().currentHealth; i++)
+        {
+            if (inRange)
+            {
+                target.GetComponent<Health>().TakeDamage(10);
+                swipeSound.Play();
+                Debug.Log("Hit");
+            }
+            yield return new WaitForSeconds(3);
+        }
     }
 }

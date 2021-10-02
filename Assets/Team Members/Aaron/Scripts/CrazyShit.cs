@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//honestly don't worry about this script just yet, I was considering making it an overall patron movement script
 public class CrazyShit : MonoBehaviour
 {
     private Rigidbody rb;

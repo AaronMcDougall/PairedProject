@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    //When enitity takes damage
+    //When entity takes damage
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;

@@ -25,12 +25,12 @@ public class PatronBehaviour : MonoBehaviour
         Debug.Log("Waiting in Line");
     }
 
-    public void Fight()
+    /*public void Fight()
     {
         //enter fighting state
         Debug.Log("Starting a Fight");
         FightingEvent?.Invoke();
-    }
+    }*/
 
     public void SneakAround()
     {
