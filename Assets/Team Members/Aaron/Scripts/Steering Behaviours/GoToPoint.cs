@@ -1,36 +1,49 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NodeCanvas.Tasks.Actions;
 using UnityEngine;
 using Object = System.Object;
 
 public class GoToPoint : MonoBehaviour
 {
-    public float speed = 10f;
-    private Vector3 myPos;
-
     public GameObject destinationLoc;
     public Vector3 destination;
 
-    private void OnEnable()
-    {
-        FindObjectOfType<PatronBehaviour>().FightingEvent += FightingAction;
-    }
+    public float speed = 10f;
+
+    public bool agro = false;
 
     void Start()
     {
+        destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
         destination = destinationLoc.transform.position;
-        myPos = transform.position;
-    }
-    
-    void Update()
-    {
-        myPos = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
-        
     }
 
-    void FightingAction()
+    void FixedUpdate()
     {
-        
+        if (agro == true)
+        {
+            GoToBouncer();
+        }
+        else if (agro == false)
+        {
+            GoToWaypoint();
+        }
+    }
+
+    void GoToBouncer()
+    {
+        agro = true;
+        destinationLoc = GameObject.FindGameObjectWithTag("Player");
+        destination = destinationLoc.transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+    }
+
+    void GoToWaypoint()
+    {
+        destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
+        destination = destinationLoc.transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 }

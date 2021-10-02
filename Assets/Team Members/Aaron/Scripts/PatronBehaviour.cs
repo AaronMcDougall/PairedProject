@@ -7,17 +7,9 @@ using UnityEngine.Events;
 
 public class PatronBehaviour : MonoBehaviour
 {
-    private PatronStats _patronStats;
+    private PatronSetup _patronStats;
     public event Action WaitingEvent;
     public event Action FightingEvent;
-
-    private void Update()
-    {
-        if (_patronStats.aggression >= 75)
-        {
-            FightingEvent?.Invoke();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,7 +29,7 @@ public class PatronBehaviour : MonoBehaviour
     {
         //enter fighting state
         Debug.Log("Starting a Fight");
-        
+        FightingEvent?.Invoke();
     }
 
     public void SneakAround()
