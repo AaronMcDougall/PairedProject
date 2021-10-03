@@ -24,27 +24,10 @@ public class PatronBehaviour : MonoBehaviour
         //enter waiting state
         Debug.Log("Waiting in Line");
     }
-
-    /*public void Fight()
-    {
-        //enter fighting state
-        Debug.Log("Starting a Fight");
-        FightingEvent?.Invoke();
-    }*/
-
+    
     public void SneakAround()
     {
         //enter sneaking state
         Debug.Log("Sneaking In");
-    }
-
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        /*if (other.GetComponent<Waypoint>())
-        {
-            atWaypoint = false;
-        }*/
     }
 }

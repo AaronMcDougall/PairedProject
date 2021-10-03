@@ -23,7 +23,8 @@ public class GoToPoint : MonoBehaviour
         destination = destinationLoc.transform.position;
     }
 
-    //checks to see aggression level (via bool); acts accordingly
+    //checks to see aggression level (via bool); acts accordingly. Would love to have this in the behaviour tree,
+    //but can't find how to FixedUpdate() it in there
     void FixedUpdate()
     {
         if (agro == true)
@@ -37,7 +38,7 @@ public class GoToPoint : MonoBehaviour
     }
 
     //moves to (nearest) bouncer
-    void GoToBouncer()
+    public void GoToBouncer()
     {
         agro = true;
         destinationLoc = GameObject.FindGameObjectWithTag("Player");
@@ -46,9 +47,17 @@ public class GoToPoint : MonoBehaviour
     }
 
     //moves to waiting (nearest) waypoint
-    void GoToWaypoint()
+    public void GoToWaypoint()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
+        destination = destinationLoc.transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+    }
+
+    //moves to goal
+    public void GoToGoal()
+    {
+        destinationLoc = GameObject.FindGameObjectWithTag("Finish");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
