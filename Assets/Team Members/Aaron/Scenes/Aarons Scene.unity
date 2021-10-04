@@ -360,7 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patronToSpawn: {fileID: 6552818041120484592, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
-  spawnLocation: {fileID: 913321783}
+  spawnXMin: 0
+  spawnXMax: 0
+  spawnZMin: 0
+  spawnZMax: 0
   amountToSpawn: 1
 --- !u!4 &913321785
 Transform:
@@ -528,6 +531,7 @@ PrefabInstance:
       value: '{"_variables":{"aggression":{"_value":50,"_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patience":{"_value":50,"_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"deviance":{"_value":50,"_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"agro":{"_propertyPath":"GoToPoint.agro","_name":"agro","_id":"e55da262-a2cc-4249-ad27-b7aceaeb0f4c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
       objectReference: {fileID: 0}
     - target: {fileID: -5980699443532529471, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
