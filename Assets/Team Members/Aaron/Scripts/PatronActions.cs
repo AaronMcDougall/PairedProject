@@ -7,26 +7,37 @@ using UnityEngine;
 
 public class PatronActions : MonoBehaviour
 {
+    private PatronSetup ps;
+    private GoToPoint movement;
     public GameObject target;
     public AudioSource swipeSound;
 
-    public bool fighting = false;
     public bool inRange = false;
+    public bool knockedDown = false;
 
     private void Start()
     {
         swipeSound = GetComponent<AudioSource>();
+        movement = GetComponent<GoToPoint>();
+        ps = GetComponent<PatronSetup>();
     }
-    
+
+    private void Update()
+    {
+    }
+
     //starts fighting when in collider of player
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("In Range to fight");
-            inRange = true;
-            target = other.gameObject;
-            StartCoroutine(FightSequence());
+            if (movement.agro == true)
+            {
+                Debug.Log("In Range to fight");
+                inRange = true;
+                target = other.gameObject;
+                StartCoroutine(FightSequence());
+            }
         }
     }
 
@@ -51,7 +62,48 @@ public class PatronActions : MonoBehaviour
                 swipeSound.Play();
                 Debug.Log("Hit");
             }
+
             yield return new WaitForSeconds(3);
         }
+    }
+
+    private void OnEnable()
+    {
+        FindObjectOfType<Health>().DeathEvent += KnockedDown;
+    }
+    
+    
+    void KnockedDown()
+    {
+        knockedDown = true;
+        StartCoroutine(KnockDownSequence());
+    }
+
+    //resets rotation, restores movement; resets health
+    void ResetPatron()
+    {
+        float aggression = GetComponent<PatronSetup>().aggression;
+        ps.aggression = ps.aggression + 5;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        movement.enabled = true;
+        Health health = GetComponent<Health>();
+        health.AddHealth(20);
+    }
+
+    //knocks player over, halts movement, then fires restoring function
+    IEnumerator KnockDownSequence()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (knockedDown)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                movement.enabled = false;
+                yield return new WaitForSeconds(1);
+            }
+        }
+
+        knockedDown = false;
+        ResetPatron();
     }
 }

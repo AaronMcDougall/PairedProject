@@ -16,7 +16,7 @@ public class GoToPoint : MonoBehaviour
 
     public bool agro = false;
 
-    //finds first waypoint to go to
+    //finds first waypoint to go to if not agro
     void Start()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
@@ -35,6 +35,7 @@ public class GoToPoint : MonoBehaviour
         {
             GoToWaypoint();
         }
+        
     }
 
     //moves to (nearest) bouncer
@@ -54,11 +55,11 @@ public class GoToPoint : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
-    //moves to goal
+    /*//moves to goal
     public void GoToGoal()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Finish");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
-    }
+    }*/
 }
