@@ -19,69 +19,82 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""7a4ae8de-a72f-4552-9b46-9e55d77402c2"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""4a62440f-04c4-4bc6-ac06-3e622d7b1b1b"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Forward"",
+                    ""type"": ""Button"",
+                    ""id"": ""04ab74a6-4e1a-478f-8683-499831b0847b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Backward"",
+                    ""type"": ""Button"",
+                    ""id"": ""34b4a039-128e-470a-8f92-c9e4a9abdf38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f200185-45b1-49b4-a4fc-f98795f67368"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d634f45-0683-4c88-b265-ca953057f13c"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Direction"",
-                    ""id"": ""b0f7fa5e-1ccd-4172-97a9-0acbe29bc7db"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""c1c979a6-a42e-4fe1-9134-acdd13b06747"",
+                    ""name"": """",
+                    ""id"": ""044e5146-d300-4c90-b5b6-001e12a4a002"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Forward"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""af0f190b-2fc0-43b0-83e0-56112ed22cae"",
+                    ""name"": """",
+                    ""id"": ""4a1555ef-db09-4cf1-a498-72c9808ed918"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Backward"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""687c8f05-b06e-4580-91a8-23a40cc32635"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""587b8be8-fdf5-4d73-b702-bbe406de5415"",
+                    ""name"": """",
+                    ""id"": ""57625e2e-6d85-4b8d-9545-f2ae10fe27ae"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb621879-e5f2-4d14-8b61-d61e6e555838"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -90,7 +103,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
 }");
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Movement = m_Movement.FindAction("Movement", throwIfNotFound: true);
+        m_Movement_Forward = m_Movement.FindAction("Forward", throwIfNotFound: true);
+        m_Movement_Backward = m_Movement.FindAction("Backward", throwIfNotFound: true);
+        m_Movement_Right = m_Movement.FindAction("Right", throwIfNotFound: true);
+        m_Movement_Left = m_Movement.FindAction("Left", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -140,12 +156,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Movement
     private readonly InputActionMap m_Movement;
     private IMovementActions m_MovementActionsCallbackInterface;
-    private readonly InputAction m_Movement_Movement;
+    private readonly InputAction m_Movement_Forward;
+    private readonly InputAction m_Movement_Backward;
+    private readonly InputAction m_Movement_Right;
+    private readonly InputAction m_Movement_Left;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
         public MovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Movement_Movement;
+        public InputAction @Forward => m_Wrapper.m_Movement_Forward;
+        public InputAction @Backward => m_Wrapper.m_Movement_Backward;
+        public InputAction @Right => m_Wrapper.m_Movement_Right;
+        public InputAction @Left => m_Wrapper.m_Movement_Left;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -155,22 +177,43 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_MovementActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnMovement;
+                @Forward.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnForward;
+                @Forward.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnForward;
+                @Forward.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnForward;
+                @Backward.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnBackward;
+                @Backward.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnBackward;
+                @Backward.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnBackward;
+                @Right.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
+                @Right.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
+                @Right.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
+                @Left.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Left.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Left.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Forward.started += instance.OnForward;
+                @Forward.performed += instance.OnForward;
+                @Forward.canceled += instance.OnForward;
+                @Backward.started += instance.OnBackward;
+                @Backward.performed += instance.OnBackward;
+                @Backward.canceled += instance.OnBackward;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
             }
         }
     }
     public MovementActions @Movement => new MovementActions(this);
     public interface IMovementActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnForward(InputAction.CallbackContext context);
+        void OnBackward(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
     }
 }
