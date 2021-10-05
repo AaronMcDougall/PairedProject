@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed;
     public float rotationSpeed;
+    public GameObject target;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -26,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
             playerControls.Movement.Right.performed += RightOnperformed;
             playerControls.Movement.Backward.performed += BackwardOnperformed;
             playerControls.Movement.Left.performed += LeftOnperformed;
-        
+        //Player Interaction
+            playerControls.Movement.Punch.performed += PunchOnperformed;
+
         //MovementAction.Enable();
 
     }
@@ -34,9 +37,11 @@ public class PlayerMovement : MonoBehaviour
 
     void UpOnperformed(InputAction.CallbackContext obj)
     {
-        Debug.Log("Up");
+        Debug.Log(obj);
         rb.AddRelativeForce(new Vector3(0, 0, 1) * speed);
-        obj.ReadValue<Vector2>();
+        //Vector2 inputVector = obj.ReadValue<Vector2>();
+        //rb.AddRelativeForce(new Vector3(inputVector.x, 0, inputVector.y) * speed, ForceMode.Force);
+
     }
 
     void RightOnperformed(InputAction.CallbackContext obj)
@@ -53,6 +58,26 @@ public class PlayerMovement : MonoBehaviour
     void LeftOnperformed(InputAction.CallbackContext obj)
     {
         rb.AddRelativeForce(new Vector3(-1, 0, 0) * speed);
+    }
+
+    void PunchOnperformed(InputAction.CallbackContext obj)
+    {
+        PunchPerformed();
+    }
+    void OnTriggerEnter(Collider other)
+    {
+
+        Debug.Log("Testing Collider");
+            if (other.gameObject.GetComponent<Health>())
+            {
+                target = other.gameObject;
+            }
+        
+    }
+    
+    void PunchPerformed()
+    {
+        target.GetComponent<Health>().TakeDamage(20);
     }
 
     void Rotation(Vector3 movement)

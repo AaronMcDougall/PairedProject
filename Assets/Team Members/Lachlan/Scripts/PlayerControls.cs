@@ -24,7 +24,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""04ab74a6-4e1a-478f-8683-499831b0847b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=0.1)""
                 },
                 {
                     ""name"": ""Backward"",
@@ -32,7 +32,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""34b4a039-128e-470a-8f92-c9e4a9abdf38"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=0.1)""
                 },
                 {
                     ""name"": ""Right"",
@@ -40,7 +40,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""9f200185-45b1-49b4-a4fc-f98795f67368"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=0.1)""
                 },
                 {
                     ""name"": ""Left"",
@@ -48,7 +48,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""3d634f45-0683-4c88-b265-ca953057f13c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=0.1)""
+                },
+                {
+                    ""name"": ""Punch"",
+                    ""type"": ""Button"",
+                    ""id"": ""5893df8e-3916-493c-8832-69381819c03b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.1)""
                 }
             ],
             ""bindings"": [
@@ -95,6 +103,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9ff5aee-125a-4420-a9d0-db225b388f93"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -107,6 +126,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Movement_Backward = m_Movement.FindAction("Backward", throwIfNotFound: true);
         m_Movement_Right = m_Movement.FindAction("Right", throwIfNotFound: true);
         m_Movement_Left = m_Movement.FindAction("Left", throwIfNotFound: true);
+        m_Movement_Punch = m_Movement.FindAction("Punch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -160,6 +180,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Movement_Backward;
     private readonly InputAction m_Movement_Right;
     private readonly InputAction m_Movement_Left;
+    private readonly InputAction m_Movement_Punch;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -168,6 +189,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Backward => m_Wrapper.m_Movement_Backward;
         public InputAction @Right => m_Wrapper.m_Movement_Right;
         public InputAction @Left => m_Wrapper.m_Movement_Left;
+        public InputAction @Punch => m_Wrapper.m_Movement_Punch;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,6 +211,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Left.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
                 @Left.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
                 @Left.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Punch.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnPunch;
+                @Punch.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnPunch;
+                @Punch.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnPunch;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -205,6 +230,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Left.started += instance.OnLeft;
                 @Left.performed += instance.OnLeft;
                 @Left.canceled += instance.OnLeft;
+                @Punch.started += instance.OnPunch;
+                @Punch.performed += instance.OnPunch;
+                @Punch.canceled += instance.OnPunch;
             }
         }
     }
@@ -215,5 +243,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnBackward(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
+        void OnPunch(InputAction.CallbackContext context);
     }
 }
