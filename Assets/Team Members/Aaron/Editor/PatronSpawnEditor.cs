@@ -16,6 +16,11 @@ public class PatronSpawnEditor : Editor
         {
             ((PatronSpawner)target)?.SpawnPatrons();
         }
+
+        if (GUILayout.Button("Clear"))
+        {
+            ((PatronSpawner)target)?.ClearPatrons();
+        }
     }
     
 }

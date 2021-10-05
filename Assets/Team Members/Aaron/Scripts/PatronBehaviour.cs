@@ -45,6 +45,5 @@ public class PatronBehaviour : MonoBehaviour
             ps.aggression = ps.aggression + 1;
             yield return new WaitForSeconds(5);
         }
-
     }
 }
