@@ -157,6 +157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AggressiveOnly
       objectReference: {fileID: 0}
+    - target: {fileID: 6552818041120484592, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
+      propertyPath: m_TagString
+      value: Patron
+      objectReference: {fileID: 0}
     - target: {fileID: 8138697094334111676, guid: f26c8a561ff781f44b8b7497a6f7a91e, type: 3}
       propertyPath: m_RootOrder
       value: 0
