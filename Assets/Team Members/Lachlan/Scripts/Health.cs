@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
     {
         print("OUCH!");
         //Short Version
-        //DeathEvent?.Invoke();
+        DeathEvent?.Invoke();
         if (DeathEvent != null)
         {
             print("OUCH!");

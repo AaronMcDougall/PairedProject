@@ -14,16 +14,14 @@ public class PatronActions : MonoBehaviour
 
     public bool inRange = false;
     public bool knockedDown = false;
+    
+    
 
     private void Start()
     {
         swipeSound = GetComponent<AudioSource>();
         movement = GetComponent<GoToPoint>();
         ps = GetComponent<PatronSetup>();
-    }
-
-    private void Update()
-    {
     }
 
     //starts fighting when in collider of player
@@ -71,23 +69,11 @@ public class PatronActions : MonoBehaviour
     {
         FindObjectOfType<Health>().DeathEvent += KnockedDown;
     }
-    
-    
+
     void KnockedDown()
     {
         knockedDown = true;
         StartCoroutine(KnockDownSequence());
-    }
-
-    //resets rotation, restores movement; resets health
-    void ResetPatron()
-    {
-        float aggression = GetComponent<PatronSetup>().aggression;
-        ps.aggression = ps.aggression + 5;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        movement.enabled = true;
-        Health health = GetComponent<Health>();
-        health.AddHealth(20);
     }
 
     //knocks player over, halts movement, then fires restoring function
@@ -105,5 +91,16 @@ public class PatronActions : MonoBehaviour
 
         knockedDown = false;
         ResetPatron();
+    }
+    
+    //resets rotation, restores movement; resets health
+    void ResetPatron()
+    {
+        float aggression = GetComponent<PatronSetup>().aggression;
+        ps.aggression = ps.aggression + 5;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        movement.enabled = true;
+        Health health = GetComponent<Health>();
+        health.AddHealth(20);
     }
 }

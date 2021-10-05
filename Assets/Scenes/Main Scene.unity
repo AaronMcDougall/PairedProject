@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patronToSpawn: {fileID: 2486237105729282420, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
+  cm: {fileID: 792414902}
+  PatronList: []
   spawnXMin: -22
   spawnXMax: 22
   spawnZMin: -20
@@ -387,6 +389,14 @@ PrefabInstance:
       propertyPath: _boundGraphSource._translation.y
       value: -65
       objectReference: {fileID: 0}
+    - target: {fileID: 4421564715130041739, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576716953570159794, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
+      propertyPath: currentHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6156671073644203333, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
       propertyPath: _serializedBlackboard
       value: '{"_variables":{"aggression":{"_value":60,"_propertyPath":"PatronSetup.aggression","_name":"aggression","_id":"79d54592-9db9-4a16-b01b-0da8c89f89c2","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
@@ -527,6 +537,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 38.051, y: -53.58, z: 0}
+--- !u!1 &1021823755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2486237105729282420, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
+  m_PrefabInstance: {fileID: 871298297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1021823766
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021823755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1435507028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,7 +683,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5997041304410897712, guid: bde684c69cec98a47af4d282abd321c8, type: 3}
   m_PrefabInstance: {fileID: 871298297}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1021823755}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a07dda4d1e6dd3347946f96e05eaaae0, type: 3}

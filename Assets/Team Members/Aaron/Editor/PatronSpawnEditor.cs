@@ -22,5 +22,4 @@ public class PatronSpawnEditor : Editor
             ((PatronSpawner)target)?.ClearPatrons();
         }
     }
-    
 }

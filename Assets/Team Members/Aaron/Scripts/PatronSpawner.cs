@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 public class PatronSpawner : MonoBehaviour
 {
     public GameObject patronToSpawn;
-
+    private GameObject copy;
+    public GameObject cm;
     public List<GameObject> PatronList = new List<GameObject>();
 
     public float spawnXMin;
@@ -25,6 +26,7 @@ public class PatronSpawner : MonoBehaviour
             GameObject copy = Instantiate(patronToSpawn, new Vector3(Random.Range(spawnXMin,spawnXMax), 1.65f, 
                 Random.Range(spawnZMin, spawnZMax)), patronToSpawn.transform.rotation);
             PatronList.Add(copy);
+            AddToCrowdList();
         }
     }
 
@@ -35,5 +37,10 @@ public class PatronSpawner : MonoBehaviour
             DestroyImmediate(patron, true);   
         }
         PatronList.Clear();
+    }
+
+    void AddToCrowdList()
+    {
+        cm.GetComponent<CrowdManagerScript>().patronList.Add(copy);
     }
 }
