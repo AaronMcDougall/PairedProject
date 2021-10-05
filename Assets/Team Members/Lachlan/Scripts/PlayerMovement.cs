@@ -68,13 +68,24 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Debug.Log("Testing Collider");
-            if (other.gameObject.GetComponent<Health>())
+            if (other.gameObject.CompareTag("Patron"))
             {
                 target = other.gameObject;
             }
         
     }
-    
+
+    void OnTriggerExit(Collider other)
+    {
+
+        Debug.Log("Testing Collider");
+        if (other.gameObject.CompareTag("Patron"))
+        {
+            target = null;
+        }
+
+    }
+
     void PunchPerformed()
     {
         target.GetComponent<Health>().TakeDamage(20);
