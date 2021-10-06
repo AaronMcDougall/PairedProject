@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WanderState : StateBase
+public class DefaultState : StateBase
 {
     public Wander wander;
     public MoveForward moveforward;
