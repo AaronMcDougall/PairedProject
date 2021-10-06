@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PatronActions : MonoBehaviour
 {
+    private Health health;
     private PatronSetup ps;
     private GoToPoint movement;
     public GameObject target;
@@ -22,6 +23,7 @@ public class PatronActions : MonoBehaviour
         swipeSound = GetComponent<AudioSource>();
         movement = GetComponent<GoToPoint>();
         ps = GetComponent<PatronSetup>();
+        health = GetComponent<Health>();
     }
 
     //starts fighting when in collider of player
@@ -72,8 +74,11 @@ public class PatronActions : MonoBehaviour
 
     void KnockedDown()
     {
-        knockedDown = true;
-        StartCoroutine(KnockDownSequence());
+        if (health.currentHealth == 0)
+        {
+            knockedDown = true;
+            StartCoroutine(KnockDownSequence());
+        }
     }
 
     //knocks player over, halts movement, then fires restoring function

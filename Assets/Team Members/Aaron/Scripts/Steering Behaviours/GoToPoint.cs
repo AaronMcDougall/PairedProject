@@ -35,7 +35,6 @@ public class GoToPoint : MonoBehaviour
         {
             GoToWaypoint();
         }
-        
     }
 
     //moves to (nearest) bouncer
