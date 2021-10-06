@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,26 +7,29 @@ public class CrowdManagerScript : MonoBehaviour
 {
     public List<GameObject> patronList;
 
+    private PatronSpawner spawner;
+
     public PatronSetup ps;
 
+    public int capacity;
+    public int space;
     public float crowdAggression;
-    public float patronAggression;
+    public int patronAggression;
     
     // Start is called before the first frame update
     void Start()
     {
+        spawner = GetComponent<PatronSpawner>();
+        ps = GetComponent<PatronSetup>();
         patronList = new List<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*foreach (var patron in patronList)
+        if (patronList.Count < (capacity - space))
         {
-            patronAggression = ps.aggression;
-            Debug.Log("patron " + patronAggression);
+            spawner.TrickleSpawn(space);
         }
-
-        crowdAggression = patronAggression / patronList.Count;*/
     }
 }

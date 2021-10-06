@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 public class PatronSpawner : MonoBehaviour
 {
     public GameObject patronToSpawn;
-    private GameObject copy;
     public GameObject cm;
     public List<GameObject> PatronList = new List<GameObject>();
 
@@ -25,9 +24,30 @@ public class PatronSpawner : MonoBehaviour
         {
             GameObject copy = Instantiate(patronToSpawn, new Vector3(Random.Range(spawnXMin,spawnXMax), 1.65f, 
                 Random.Range(spawnZMin, spawnZMax)), patronToSpawn.transform.rotation);
+            //local list for clearing
             PatronList.Add(copy);
-            AddToCrowdList();
+            //adding to crowd control list
+            AddToCrowdList(copy);
         }
+    }
+
+    public void TrickleSpawn(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject copy = Instantiate(patronToSpawn, new Vector3(Random.Range(spawnXMin, spawnXMax), 1.65f,
+                Random.Range(spawnZMin, spawnZMax)), patronToSpawn.transform.rotation);
+            //local list for clearing
+            PatronList.Add(copy);
+            //adding to crowd control list
+            AddToCrowdList(copy);
+        }
+    }
+
+    void AddToCrowdList(GameObject dude)
+    {
+        //cms.patronList.Add(copy);
+        cm.GetComponent<CrowdManagerScript>().patronList.Add(dude);
     }
 
     public void ClearPatrons()
@@ -37,10 +57,5 @@ public class PatronSpawner : MonoBehaviour
             DestroyImmediate(patron, true);   
         }
         PatronList.Clear();
-    }
-
-    void AddToCrowdList()
-    {
-        cm.GetComponent<CrowdManagerScript>().patronList.Add(copy);
     }
 }
