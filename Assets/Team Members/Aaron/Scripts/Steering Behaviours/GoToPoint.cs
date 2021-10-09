@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using NodeCanvas.Tasks.Actions;
 using UnityEngine;
 using Object = System.Object;
@@ -16,9 +17,13 @@ public class GoToPoint : MonoBehaviour
 
     public bool agro = false;
 
+    public enum Waypoints {Waiting, Bouncer, Goal};
+    Waypoints waypoint;
+
     //finds first waypoint to go to if not agro
     void Start()
     {
+        waypoint = Waypoints.Waiting;
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
         destination = destinationLoc.transform.position;
     }
@@ -30,10 +35,12 @@ public class GoToPoint : MonoBehaviour
         if (agro == true)
         {
             GoToBouncer();
+            waypoint = Waypoints.Bouncer;
         }
         else if (agro == false)
         {
             GoToWaypoint();
+            waypoint = Waypoints.Waiting;
         }
     }
 
