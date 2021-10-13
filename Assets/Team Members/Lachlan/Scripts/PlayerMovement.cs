@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed;
     public GameObject target;
     Rigidbody rb;
+
+    //just popped this in here for knockback - Aaron
+    public event Action KnockbackEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     void PunchPerformed()
     {
         target.GetComponent<Health>().TakeDamage(20);
+        KnockbackEvent?.Invoke();
     }
 
     void Rotation(Vector3 movement)

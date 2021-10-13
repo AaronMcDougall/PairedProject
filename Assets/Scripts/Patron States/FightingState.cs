@@ -2,28 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class FightingState : StateBase
 {
-    public GameObject Fight;
     public StateBase finishFightingState;
+    public GameObject target;
+    public AudioSource swipeSound;
+
+    public event Action GoToBouncerEvent;
+
+    public bool inRange;
+    
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Fight");
-        //if (gameObject.tag == "Fight")
-        {
-            //Fight.gameObject.SetActive(true);
-        }
-        Fight.SetActive(!Fight.activeInHierarchy);
         AggressionThreshold();
 
+        GoToBouncerEvent?.Invoke();
     }
        
 
     public override void Execute()
     {
         base.Execute();
+        
+        //need to find target
+        target = GameObject.Find("Player");
+
         Debug.Log("Excecute Fight");
     }
 
@@ -31,17 +38,45 @@ public class FightingState : StateBase
     {
         base.Exit();
         Debug.Log("Fight Exit");
-        //if (gameObject.tag == "Fight")
-        {
-            //Fight.gameObject.SetActive(false);
-        }
-        Fight.SetActive(!Fight.activeInHierarchy);
-        //GetComponent<StateManager>().ChangeState(finishFightingState);
     }
 
     public void AggressionThreshold()
     {
         
-
     }
+    
+    //deals damage to player every (3) seconds as long as the target (player) has health
+    IEnumerator FightSequence()
+    {
+        for (int i = 0; i < target.GetComponent<Health>().currentHealth; i++)
+        {
+            if (inRange)
+            {
+                target.GetComponent<Health>().TakeDamage(10);
+                swipeSound.Play();
+                Debug.Log("Hit");
+            }
+            yield return new WaitForSeconds(3);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inRange = true;
+            StartCoroutine(FightSequence());
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inRange = false;
+            StopCoroutine(FightSequence());
+        }
+    }
+    
+    
 }

@@ -20,6 +20,15 @@ public class GoToPoint : MonoBehaviour
     public enum Waypoints {Waiting, Bouncer, Goal};
     Waypoints waypoint;
 
+    private void OnEnable()
+    {
+        FindObjectOfType<FightingState>().GoToBouncerEvent += GoToBouncer;
+    }
+    private void OnDisable()
+    {
+        FindObjectOfType<FightingState>().GoToBouncerEvent -= GoToBouncer;
+    }
+
     //finds first waypoint to go to if not agro
     void Start()
     {
@@ -32,12 +41,12 @@ public class GoToPoint : MonoBehaviour
     //but can't find how to FixedUpdate() it in there
     void FixedUpdate()
     {
-        if (agro == true)
+        /*if (agro == true)
         {
             GoToBouncer();
             waypoint = Waypoints.Bouncer;
-        }
-        else if (agro == false)
+        }*/
+        if (agro == false)
         {
             GoToWaypoint();
             waypoint = Waypoints.Waiting;
@@ -45,16 +54,16 @@ public class GoToPoint : MonoBehaviour
     }
 
     //moves to (nearest) bouncer
-    public void GoToBouncer()
+    private void GoToBouncer()
     {
-        agro = true;
+        Debug.Log("Bouncer Check");
         destinationLoc = GameObject.FindGameObjectWithTag("Player");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
     //moves to waiting (nearest) waypoint
-    public void GoToWaypoint()
+    private void GoToWaypoint()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
         destination = destinationLoc.transform.position;

@@ -15,8 +15,6 @@ public class PatronActions : MonoBehaviour
 
     public bool inRange = false;
     public bool knockedDown = false;
-    
-    
 
     private void Start()
     {
@@ -24,47 +22,6 @@ public class PatronActions : MonoBehaviour
         movement = GetComponent<GoToPoint>();
         ps = GetComponent<PatronSetup>();
         health = GetComponent<Health>();
-    }
-
-    //starts fighting when in collider of player
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (movement.agro == true)
-            {
-                Debug.Log("In Range to fight");
-                inRange = true;
-                target = other.gameObject;
-                StartCoroutine(FightSequence());
-            }
-        }
-    }
-
-    //stops fighting when out of range
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<PlayerModel>())
-        {
-            inRange = false;
-            target = null;
-        }
-    }
-
-    //deals damage to player every (3) seconds as long as the target (player) has health
-    IEnumerator FightSequence()
-    {
-        for (int i = 0; i < target.GetComponent<Health>().currentHealth; i++)
-        {
-            if (inRange)
-            {
-                target.GetComponent<Health>().TakeDamage(10);
-                swipeSound.Play();
-                Debug.Log("Hit");
-            }
-
-            yield return new WaitForSeconds(3);
-        }
     }
 
     private void OnEnable()

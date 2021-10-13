@@ -78,9 +78,6 @@ public class PatronSpawner : MonoBehaviour
         {
             DestroyImmediate(patron, true);
         }
-
         PatronList.Clear();
     }
-
-    
 }

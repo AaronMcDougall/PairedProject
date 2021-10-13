@@ -7,21 +7,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.iOS;
 using Random = UnityEngine.Random;
+using UnityEngine.Events;
 
 public class CrowdManagerScript : MonoBehaviour
 {
     public List<GameObject> patronList;
 
     private PatronSpawner spawner;
-
     public PatronSetup ps;
 
+    public event Action RiotEvent;
+
+    public int aggressionThreshold;
+    
     public int maxCapacity;
     public int capacity;
     public int space;
-    public int timer;
     public float crowdAggression;
-    public int patronAggression;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,6 @@ public class CrowdManagerScript : MonoBehaviour
     {
         //I'm hoping that introducing a method of admitting Patrons will help sort this out.
         //As patrons are admitted they will be removed from the list, thus the need to spawn more will arise.
-
         if (spawner.PatronList.Count < maxCapacity)
         {
             int difference = maxCapacity - spawner.PatronList.Count;
@@ -54,7 +55,6 @@ public class CrowdManagerScript : MonoBehaviour
         {
             GetCrowdAggression();
         }
-
     }
 
     void GetCrowdAggression()
@@ -67,5 +67,10 @@ public class CrowdManagerScript : MonoBehaviour
         }
 
         crowdAggression = totalAggression / patronList.Count;
+
+        if (crowdAggression > aggressionThreshold)
+        {
+            RiotEvent?.Invoke();
+        }
     }
 }
