@@ -17,9 +17,9 @@ public class CustomButton_Editor : Editor
         }
             
 
-        /*base.OnInspectorGUI();
+        //base.OnInspectorGUI();
 
-        if (GUILayout.Button("Begin"))
+        /*if (GUILayout.Button("Begin"))
         {
             (target as StateBase)?.Enter();
 
