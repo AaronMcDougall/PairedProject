@@ -9,7 +9,15 @@ public class CustomButton_Editor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("ChangeState"))
+        {
+            ((StateBase)target).GetComponent<StateManager>().ChangeState((StateBase)target);
+        }
+            
+
+        /*base.OnInspectorGUI();
 
         if (GUILayout.Button("Begin"))
         {
@@ -25,6 +33,6 @@ public class CustomButton_Editor : Editor
         {
             (target as StateBase)?.Exit();
 
-        }
+        }*/
     }
 }

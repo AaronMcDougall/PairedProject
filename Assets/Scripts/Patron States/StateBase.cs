@@ -18,7 +18,7 @@ public class StateBase : MonoBehaviour
 
     public virtual void Exit()
     {
-        GetComponent<StateManager>().ChangeState(newState);
+        
     }
 
 }

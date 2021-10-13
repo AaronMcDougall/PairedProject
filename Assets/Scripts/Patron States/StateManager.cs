@@ -7,9 +7,9 @@ public class StateManager : MonoBehaviour
 
     public StateBase currentState;
 
-    public StateBase newState;
+    //public StateBase newState;
 
-    void Update()
+    void FixedUpdate()
     {
         UpdateCurrentState();
     }
@@ -25,7 +25,7 @@ public class StateManager : MonoBehaviour
         {
             currentState.Exit();
         }
-        if(newState!=null)
+        if (newState!=null)
         {
             newState.Enter();
             currentState = newState;
