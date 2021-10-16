@@ -56,7 +56,6 @@ public class GoToPoint : MonoBehaviour
     //moves to (nearest) bouncer
     private void GoToBouncer()
     {
-        Debug.Log("Bouncer Check");
         destinationLoc = GameObject.FindGameObjectWithTag("Player");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
