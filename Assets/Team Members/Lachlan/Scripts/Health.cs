@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
         {
             print("OUCH!");
             DeathEvent();
+            Debug.Log("4");
             
         }
     }
