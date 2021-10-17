@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     //public InputAction MovementAction;
     //public InputActionMap gameplayActions;
 
+    public StateManager stateManager;
+
     public float speed;
     public float rotationSpeed;
     public GameObject target;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stateManager = GetComponent<StateManager>();
         rb = this.GetComponent<Rigidbody>();
 
             PlayerControls playerControls = new PlayerControls();
@@ -93,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PunchPerformed()
     {
+        stateManager.GetKnockedDown();
         target.GetComponent<Health>().TakeDamage(20);
         KnockbackEvent?.Invoke();
     }

@@ -106,18 +106,25 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8138697094334111676}
+  - component: {fileID: 7845096089260514059}
+  - component: {fileID: 349572616}
+  - component: {fileID: 8478223687078692215}
   - component: {fileID: 7282307190887121089}
   - component: {fileID: 5771075080901785201}
-  - component: {fileID: 7845096089260514059}
   - component: {fileID: 5988972710712346969}
   - component: {fileID: -5980699443532529471}
-  - component: {fileID: 9154610832012872947}
   - component: {fileID: -6104225253563305804}
   - component: {fileID: 3824911464164024630}
-  - component: {fileID: 349572616}
+  - component: {fileID: 7335017682673159739}
+  - component: {fileID: -7424855289322181845}
+  - component: {fileID: 4428567934827465551}
+  - component: {fileID: -436811891437888171}
+  - component: {fileID: -7733164248602872581}
+  - component: {fileID: 6535897959815678037}
+  - component: {fileID: 4996838384714733352}
   m_Layer: 0
   m_Name: Patron
-  m_TagString: Untagged
+  m_TagString: Patron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,13 +137,139 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552818041120484592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.62, z: 6.15}
+  m_LocalPosition: {x: 0, y: 1.62, z: -3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4838475586124739438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &7845096089260514059
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 5
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!136 &349572616
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8478223687078692215
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 978f11b73317e7b4f96f4dd1615b9168, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &7282307190887121089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,22 +298,6 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   speed: 10
   agro: 0
---- !u!54 &7845096089260514059
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6552818041120484592}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 5
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!114 &5988972710712346969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,14 +311,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":653.2567,"y":-151.1173},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_position":{"x":1023.905,"y":323.898},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_condition":{"valueA":{"_name":"aggression","_targetVariableID":"79d54592-9db9-4a16-b01b-0da8c89f89c2"},"checkType":3,"valueB":{"_value":65},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":916.9047,"y":477.898},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_action":{"boolVariable":{"_name":"agro","_targetVariableID":"e55da262-a2cc-4249-ad27-b7aceaeb0f4c"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":1082.816,"y":477.2994},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"method":{"_baseInfo":"GoToPoint|GoToBouncer|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":1229.699,"y":478.8209},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_position":{"x":1529.901,"y":307.5858},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"5"},{"_condition":{"valueA":{"_name":"aggression","_targetVariableID":"79d54592-9db9-4a16-b01b-0da8c89f89c2"},"checkType":2,"valueB":{"_value":65},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":1436.055,"y":444.2059},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"6"},{"_action":{"boolVariable":{"_name":"agro","_targetVariableID":"e55da262-a2cc-4249-ad27-b7aceaeb0f4c"},"setTo":0,"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},"_position":{"x":1589.932,"y":445.9156},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"method":{"_baseInfo":"GoToPoint|GoToWaypoint|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":1736.0,"y":448.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_position":{"x":190.0,"y":307.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_condition":{"valueA":{"_name":"patience","_targetVariableID":"7a588bf4-f39a-4f82-ab1c-b307796eb318"},"checkType":1,"valueB":{"_value":50},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":37.0,"y":480.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"10"},{"_action":{"method":{"_baseInfo":"PatronBehaviour|WaitInLine|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":216.0,"y":481.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"11"},{"_position":{"x":599.1937,"y":312.4005},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"12"},{"_condition":{"valueA":{"_name":"deviance","_targetVariableID":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346"},"checkType":1,"valueB":{"_value":50},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":472.1937,"y":483.4005},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_action":{"method":{"_baseInfo":"PatronBehaviour|SneakAround|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":653.1938,"y":481.2656},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"14"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[{"name":"Aggression/Fighting","rect":{"xMin":855.9047,"yMin":267.898,"xMax":1379.0,"yMax":578.0}},{"name":"Aggression/Easing","rect":{"xMin":1403.162,"yMin":268.0573,"xMax":1895.0,"yMax":536.0}},{"name":"Patience/Waiting","rect":{"xMin":17.0,"yMin":264.0,"xMax":402.0,"yMax":577.0}},{"name":"Deviance/Sneaking","rect":{"xMin":445.1937,"yMin":266.4005,"xMax":831.1937,"yMax":574.4005}}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":2124.585,"y":-195.6673},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"method":{"_baseInfo":"StateManager|ChangeState|System.Void","_paramsInfo":"StateBase"},"parameters":[{"_type":"StateBase"}],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":1950.106,"y":-46.07941},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"_position":{"x":2194.124,"y":20.55653},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_condition":{"valueA":{"_name":"knockedDown","_targetVariableID":"f2872401-dfaf-407e-ae19-000e74e9d947"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":1732.413,"y":173.4436},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"3"},{"_condition":{"valueA":{"_name":"inPostion","_targetVariableID":"6147ede7-48ba-47f8-82f9-7b9daa25af70"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":2007.22,"y":172.6543},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":2228.011,"y":160.0008},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"5"},{"_position":{"x":2029.153,"y":428.604},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"6"},{"_condition":{"valueA":{"_name":"aggression","_targetVariableID":"79d54592-9db9-4a16-b01b-0da8c89f89c2"},"checkType":1,"valueB":{"_value":75},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":1939.044,"y":569.174},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"7"},{"_action":{"method":{"_baseInfo":"StateManager|StartAFight|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":2106.046,"y":572.7784},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_position":{"x":2432.914,"y":431.6097},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_condition":{"valueA":{"_name":"patience","_targetVariableID":"7a588bf4-f39a-4f82-ab1c-b307796eb318"},"checkType":1,"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckInt"},"_position":{"x":2344.007,"y":549.3522},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"10"},{"_action":{"method":{"_baseInfo":"StateManager|WaitInLine|System.Void","_paramsInfo":""},"parameters":[],"returnValue":{},"$type":"NodeCanvas.Tasks.Actions.ExecuteFunction_Multiplatform"},"_position":{"x":2494.188,"y":551.7551},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"11"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[{"name":"
+    ","rect":{"xMin":-1893.098,"yMin":-977.6671,"xMax":-302.2543,"yMax":-244.0847}},{"name":"New
+    Behaviour","rect":{"xMin":1712.611,"yMin":-268.6129,"xMax":2759.387,"yMax":698.3937}},{"name":"","rect":{"xMin":-1545.332,"yMin":-768.2271,"xMax":-1100.431,"yMax":-481.3313}},{"name":"","rect":{"xMin":-1920.947,"yMin":-858.0951,"xMax":-1535.947,"yMax":-545.0951}},{"name":"","rect":{"xMin":-1064.944,"yMin":-793.0356,"xMax":-678.9443,"yMax":-485.0357}},{"name":"Waiting","rect":{"xMin":2298.603,"yMin":387.2674,"xMax":2662.644,"yMax":651.5871}},{"name":"Fighting","rect":{"xMin":1916.468,"yMin":384.2617,"xMax":2256.479,"yMax":646.1785}}],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.2
     _category: 
     _comments: 
-    _translation: {x: -434.99997, y: 169.00002}
-    _zoomFactor: 0.85511994
+    _translation: {x: -1067, y: 235}
+    _zoomFactor: 0.7583686
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -227,6 +346,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patience":{"_value":60,"_propertyPath":"PatronSetup.patience","_name":"patience","_id":"7a588bf4-f39a-4f82-ab1c-b307796eb318","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"deviance":{"_value":60,"_propertyPath":"PatronSetup.deviance","_name":"deviance","_id":"2777fbe5-43cc-4f7a-ac17-f1c368dfc346","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"agro":{"_propertyPath":"GoToPoint.agro","_name":"agro","_id":"e55da262-a2cc-4249-ad27-b7aceaeb0f4c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"knockedDown":{"_propertyPath":"KnockedDownState.knockedDown","_name":"knockedDown","_id":"f2872401-dfaf-407e-ae19-000e74e9d947","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"inPostion":{"_value":true,"_name":"inPostion","_id":"6147ede7-48ba-47f8-82f9-7b9daa25af70","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -242,18 +363,12 @@ MonoBehaviour:
   - _json: '{"_propertyPath":"GoToPoint.agro","_name":"agro","_id":"e55da262-a2cc-4249-ad27-b7aceaeb0f4c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
---- !u!114 &9154610832012872947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6552818041120484592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed043d87ab9c7f1439e54809b7a2edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  - _json: '{"_propertyPath":"KnockedDownState.knockedDown","_name":"knockedDown","_id":"f2872401-dfaf-407e-ae19-000e74e9d947","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":true,"_name":"inPostion","_id":"6147ede7-48ba-47f8-82f9-7b9daa25af70","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &-6104225253563305804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,17 +398,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
---- !u!136 &349572616
-CapsuleCollider:
+--- !u!114 &7335017682673159739
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552818041120484592}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d21833e89bfc0e4f806a7ac1a9676f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: -7424855289322181845}
+  patientState: {fileID: 4428567934827465551}
+  fightingState: {fileID: -436811891437888171}
+  knockedDownState: {fileID: -7733164248602872581}
+  leavingState: {fileID: 6535897959815678037}
+  sneakingState: {fileID: 4996838384714733352}
+--- !u!114 &-7424855289322181845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52b9386a9e57c0459849d2d373fafbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishDefaultState: {fileID: 0}
+--- !u!114 &4428567934827465551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7dcdc3cc0bd1438c796dd83509eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-436811891437888171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6971bd241a0a4194b8125355edcbd3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishFightingState: {fileID: 6535897959815678037}
+  target: {fileID: 0}
+  swipeSound: {fileID: 8478223687078692215}
+  inRange: 0
+--- !u!114 &-7733164248602872581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e14ec3d7175afc45a2f1a865062b632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockedDown: 0
+--- !u!114 &6535897959815678037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410df77d6d0143949917339123f6aa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4996838384714733352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552818041120484592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5efdd5ed02f1c4d4cbdf9bd96efc3f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

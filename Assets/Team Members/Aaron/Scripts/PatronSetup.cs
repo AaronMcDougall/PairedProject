@@ -29,6 +29,17 @@ public class PatronSetup : MonoBehaviour
         deviance = Random.Range(0, 100);
         
         //start coroutine to build aggression from awake
-        StartCoroutine(pb.GetAngry());
+        StartCoroutine(GetAngry());
+    }
+    
+    //builds aggression over time
+    public IEnumerator GetAngry()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log(aggression);
+            aggression = aggression + 1;
+            yield return new WaitForSeconds(5);
+        }
     }
 }

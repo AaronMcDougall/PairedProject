@@ -23,34 +23,12 @@ public class GoToPoint : MonoBehaviour
     private void OnEnable()
     {
         FindObjectOfType<FightingState>().GoToBouncerEvent += GoToBouncer;
+        FindObjectOfType<PatientState>().GoToWaitingEvent += GoToWaypoint;
     }
     private void OnDisable()
     {
         FindObjectOfType<FightingState>().GoToBouncerEvent -= GoToBouncer;
-    }
-
-    //finds first waypoint to go to if not agro
-    void Start()
-    {
-        waypoint = Waypoints.Waiting;
-        destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
-        destination = destinationLoc.transform.position;
-    }
-
-    //checks to see aggression level (via bool); acts accordingly. Would love to have this in the behaviour tree,
-    //but can't find how to FixedUpdate() it in there
-    void FixedUpdate()
-    {
-        /*if (agro == true)
-        {
-            GoToBouncer();
-            waypoint = Waypoints.Bouncer;
-        }*/
-        if (agro == false)
-        {
-            GoToWaypoint();
-            waypoint = Waypoints.Waiting;
-        }
+        FindObjectOfType<PatientState>().GoToWaitingEvent -= GoToWaypoint;
     }
 
     //moves to (nearest) bouncer

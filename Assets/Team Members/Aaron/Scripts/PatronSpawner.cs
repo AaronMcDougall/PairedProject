@@ -51,7 +51,7 @@ public class PatronSpawner : MonoBehaviour
     {
         Debug.Log("Test Trickle");
 
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i <= amount; i++)
         {
             GameObject copy = Instantiate(patronToSpawn, new Vector3(Random.Range(spawnXMin, spawnXMax), 1.65f,
                 Random.Range(spawnZMin, spawnZMax)), patronToSpawn.transform.rotation);
