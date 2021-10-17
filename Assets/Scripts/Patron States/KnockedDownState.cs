@@ -16,6 +16,7 @@ public class KnockedDownState : StateBase
         movement = GetComponent<GoToPoint>();
         ps = GetComponent<PatronSetup>();
         health = GetComponent<Health>();
+        KnockedDown();
     }
 
     public override void Execute()
@@ -35,11 +36,8 @@ public class KnockedDownState : StateBase
 
     private void KnockedDown()
     {
-        if (health.currentHealth == 0)
-        {
-            knockedDown = true;
-            StartCoroutine(KnockDownSequence());
-        }
+        knockedDown = true;
+        StartCoroutine(KnockDownSequence());
     }
 
     //knocks player over, halts movement, then fires restoring function
