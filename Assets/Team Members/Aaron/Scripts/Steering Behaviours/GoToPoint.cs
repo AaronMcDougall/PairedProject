@@ -24,6 +24,7 @@ public class GoToPoint : MonoBehaviour
     {
         FindObjectOfType<FightingState>().GoToBouncerEvent += GoToBouncer;
         FindObjectOfType<PatientState>().GoToWaitingEvent += GoToWaypoint;
+        FindObjectOfType<SneakingState>().GoToSneakingEvent += GoToGoal;
     }
     private void OnDisable()
     {
@@ -47,11 +48,11 @@ public class GoToPoint : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
-    /*//moves to goal
+    //moves to goal
     public void GoToGoal()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Finish");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
-    }*/
+    }
 }
