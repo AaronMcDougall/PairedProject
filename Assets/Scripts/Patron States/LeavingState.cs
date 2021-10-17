@@ -25,7 +25,9 @@ public class LeavingState : StateBase
         Debug.Log("Enter.LeavingState");
         //ps = GetComponent<PatronSetup>();
         isLeaving = true;
+        Debug.Log("1");
         GoToExitEvent?.Invoke();
+        Debug.Log("2");
     }
 
     public override void Execute()
