@@ -5475,7 +5475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1451565742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5507,7 +5507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52b9386a9e57c0459849d2d373fafbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Default: {fileID: 1451565741}
+  finishDefaultState: {fileID: 0}
 --- !u!114 &1451565744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5581,10 +5581,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619614517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d52b9386a9e57c0459849d2d373fafbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6971bd241a0a4194b8125355edcbd3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Default: {fileID: 1451565741}
+  finishFightingState: {fileID: 0}
+  target: {fileID: 0}
+  swipeSound: {fileID: 0}
+  inRange: 0
 --- !u!114 &1619614519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5594,10 +5597,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619614517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6971bd241a0a4194b8125355edcbd3f3, type: 3}
+  m_Script: {fileID: 11500000, guid: d52b9386a9e57c0459849d2d373fafbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fight: {fileID: 2023656103}
+  finishDefaultState: {fileID: 0}
 --- !u!114 &1619614520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5610,7 +5613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d21833e89bfc0e4f806a7ac1a9676f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  currentState: {fileID: 1619614518}
 --- !u!136 &1619614521
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5953,7 +5956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2023656104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5985,7 +5988,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6971bd241a0a4194b8125355edcbd3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fight: {fileID: 2023656103}
+  finishFightingState: {fileID: 0}
+  target: {fileID: 0}
+  swipeSound: {fileID: 0}
+  inRange: 0
 --- !u!114 &2023656106
 MonoBehaviour:
   m_ObjectHideFlags: 0
