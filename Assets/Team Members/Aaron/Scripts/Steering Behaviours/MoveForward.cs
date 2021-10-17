@@ -11,10 +11,6 @@ public class MoveForward : MonoBehaviour
     private Vector3 thisPos;
 
     private bool wandering = true;
-    private void OnEnable()
-    {
-        FindObjectOfType<PatronBehaviour>().WaitingEvent += WaitInLine;
-    }
 
     // Start is called before the first frame update
     void Start()

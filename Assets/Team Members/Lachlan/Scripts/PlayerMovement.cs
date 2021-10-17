@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject target;
     Rigidbody rb;
 
-    //just popped this in here for knockback - Aaron
-    public event Action KnockbackEvent;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -96,9 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PunchPerformed()
     {
-        stateManager.GetKnockedDown();
         target.GetComponent<Health>().TakeDamage(20);
-        KnockbackEvent?.Invoke();
     }
 
     void Rotation(Vector3 movement)

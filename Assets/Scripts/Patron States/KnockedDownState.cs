@@ -77,7 +77,6 @@ public class KnockedDownState : StateBase
     void ResetPatron()
     {
         float aggression = GetComponent<PatronSetup>().aggression;
-        ps.aggression = ps.aggression + 5;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         movement.enabled = true;
         Health health = GetComponent<Health>();

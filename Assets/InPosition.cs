@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Waypoint : MonoBehaviour
+public class InPosition : MonoBehaviour
 {
     public bool inPosition;
     
