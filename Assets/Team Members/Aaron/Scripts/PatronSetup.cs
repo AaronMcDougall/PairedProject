@@ -18,7 +18,6 @@ public class PatronSetup : MonoBehaviour
         cm = GetComponent<CrowdManagerScript>();
     }
 
-    
 
     //determines and assigns random values to all three stats on spawn
     void Awake()
@@ -26,11 +25,11 @@ public class PatronSetup : MonoBehaviour
         patience = Random.Range(10, 100);
         aggression = Random.Range(0, 100);
         deviance = Random.Range(0, 100);
-        
+
         //start coroutine to build aggression from awake
         StartCoroutine(GetAngry());
     }
-    
+
     //builds aggression over time
     public IEnumerator GetAngry()
     {
@@ -47,14 +46,22 @@ public class PatronSetup : MonoBehaviour
         deviance = 100;
         StopCoroutine(GetAngry());
     }
-    
-    /*private void OnEnable()
+
+    void NeutralStats()
     {
-        FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
+        patience = 0;
+        aggression = 0;
+        deviance = 0;
+        StopCoroutine(GetAngry());
     }
-    
+
+    private void OnEnable()
+    {
+        FindObjectOfType<LeavingState>().GoToExitEvent += NeutralStats;
+    }
+
     private void OnDisable()
     {
-        FindObjectOfType<CrowdManagerScript>().RiotEvent -= Riot;
-    }*/
+        FindObjectOfType<LeavingState>().GoToExitEvent -= NeutralStats;
+    }
 }

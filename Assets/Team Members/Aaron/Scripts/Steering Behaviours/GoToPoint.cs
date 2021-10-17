@@ -20,6 +20,11 @@ public class GoToPoint : MonoBehaviour
     public enum Waypoints {Waiting, Bouncer, Goal};
     Waypoints waypoint;
 
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+    }
+
     private void OnEnable()
     {
         FindObjectOfType<FightingState>().GoToBouncerEvent += GoToBouncer;
@@ -40,7 +45,7 @@ public class GoToPoint : MonoBehaviour
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Player");
         destination = destinationLoc.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+        //transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
     //moves to waiting (nearest) waypoint
@@ -48,7 +53,7 @@ public class GoToPoint : MonoBehaviour
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Waypoint");
         destination = destinationLoc.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+        //transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
     //moves to goal
@@ -56,13 +61,13 @@ public class GoToPoint : MonoBehaviour
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Finish");
         destination = destinationLoc.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+        //transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
     public void GoToExit()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Exit");
         destination = destinationLoc.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
+        //transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 }

@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class LeavingState : StateBase
 {
-    //the location of moving to the exit for the patrons
-    private GoToPoint exit;
-    public GameObject destinationLoc;
-    public Vector3 destination;
-
     private PatronSetup ps;
     public CrowdManagerScript cm;
 
@@ -22,13 +17,14 @@ public class LeavingState : StateBase
     public override void Enter()
     {
         base.Enter();
-        cm = GetComponent<CrowdManagerScript>();
-        GoToExitEvent?.Invoke();
+        //cm = GetComponent<CrowdManagerScript>();
+
     }
 
     public override void Execute()
     {
         base.Execute();
+        GoToExitEvent?.Invoke();
     }
     
     public override void Exit()

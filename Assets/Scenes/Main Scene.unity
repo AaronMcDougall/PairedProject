@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 764247108629609824, guid: 120a1152695b65b4b864cb26fd3d67c0, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474142645936014704, guid: 120a1152695b65b4b864cb26fd3d67c0, type: 3}
       propertyPath: speed
       value: 150
@@ -644,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 93387756883801539, guid: d625640d68e45cc4f9f18f93c34e8529, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.397
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 93387756883801539, guid: d625640d68e45cc4f9f18f93c34e8529, type: 3}
       propertyPath: m_LocalPosition.z
