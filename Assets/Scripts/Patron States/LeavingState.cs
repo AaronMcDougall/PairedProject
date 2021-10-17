@@ -10,12 +10,19 @@ public class LeavingState : StateBase
     public GameObject destinationLoc;
     public Vector3 destination;
 
+    private PatronSetup ps;
+    public bool isLeaving = false;
+
     //move speed
     public float speed=10.0f;
     
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Enter.LeavingState");
+        //ps = GetComponent<PatronSetup>();
+        isLeaving = true;
+        LeaveArea();
     }
 
     public override void Execute()
@@ -25,6 +32,7 @@ public class LeavingState : StateBase
 
     private void LeaveArea()
     {
+        //ps.enabled = false;
         destinationLoc = GameObject.FindGameObjectWithTag("Exit");
         destination = destinationLoc.transform.position;
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
