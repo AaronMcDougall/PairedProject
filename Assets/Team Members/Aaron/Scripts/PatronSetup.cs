@@ -18,15 +18,7 @@ public class PatronSetup : MonoBehaviour
         cm = GetComponent<CrowdManagerScript>();
     }
 
-    private void OnEnable()
-    {
-        FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
-    }
     
-    private void OnDisable()
-    {
-        FindObjectOfType<CrowdManagerScript>().RiotEvent -= Riot;
-    }
 
     //determines and assigns random values to all three stats on spawn
     void Awake()
@@ -56,4 +48,14 @@ public class PatronSetup : MonoBehaviour
         deviance = 100;
         StopCoroutine(GetAngry());
     }
+    
+    /*private void OnEnable()
+    {
+        FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
+    }
+    
+    private void OnDisable()
+    {
+        FindObjectOfType<CrowdManagerScript>().RiotEvent -= Riot;
+    }*/
 }
