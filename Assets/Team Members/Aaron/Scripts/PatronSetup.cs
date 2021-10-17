@@ -23,7 +23,7 @@ public class PatronSetup : MonoBehaviour
     //determines and assigns random values to all three stats on spawn
     void Awake()
     {
-        patience = Random.Range(0, 100);
+        patience = Random.Range(10, 100);
         aggression = Random.Range(0, 100);
         deviance = Random.Range(0, 100);
         
