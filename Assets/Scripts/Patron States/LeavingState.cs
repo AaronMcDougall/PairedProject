@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NodeCanvas.Tasks.Actions;
@@ -16,13 +17,15 @@ public class LeavingState : StateBase
     //move speed
     public float speed=10.0f;
     
+    public event Action GoToExitEvent;
+    
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Enter.LeavingState");
         //ps = GetComponent<PatronSetup>();
         isLeaving = true;
-        LeaveArea();
+        GoToExitEvent?.Invoke();
     }
 
     public override void Execute()
@@ -30,14 +33,6 @@ public class LeavingState : StateBase
         base.Execute();
     }
 
-    private void LeaveArea()
-    {
-        //ps.enabled = false;
-        destinationLoc = GameObject.FindGameObjectWithTag("Exit");
-        destination = destinationLoc.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
-    }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Exit"))
