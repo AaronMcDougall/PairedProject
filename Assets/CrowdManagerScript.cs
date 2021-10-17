@@ -32,7 +32,7 @@ public class CrowdManagerScript : MonoBehaviour
         ps = GetComponent<PatronSetup>();
         patronList = new List<GameObject>();
 
-        InvokeRepeating("CreateSpace", 2f, 5f);
+        InvokeRepeating("CreateSpace", 2f, 10f);
     }
 
     void CreateSpace()

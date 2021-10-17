@@ -43,7 +43,7 @@ public class KnockedDownState : StateBase
     //knocks player over, halts movement, then fires restoring function
     IEnumerator KnockDownSequence()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             if (knockedDown)
             {
@@ -55,7 +55,6 @@ public class KnockedDownState : StateBase
 
         CheckAction();
         knockedDown = false;
-        ResetPatron();
     }
 
     private void CheckAction()
@@ -67,7 +66,7 @@ public class KnockedDownState : StateBase
         }
         else
         {
-            GetComponent<StateManager>().Leaving();
+            StandAndLeave();
         }
         
     }
@@ -79,5 +78,15 @@ public class KnockedDownState : StateBase
         movement.enabled = true;
         Health health = GetComponent<Health>();
         health.AddHealth(20);
+        GetComponent<StateManager>().StartAFight();
+    }
+
+    void StandAndLeave()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        movement.enabled = true;
+        Health health = GetComponent<Health>();
+        health.AddHealth(20);
+        GetComponent<StateManager>().Leaving();
     }
 }

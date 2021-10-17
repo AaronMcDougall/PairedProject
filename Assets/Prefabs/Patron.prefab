@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationLoc: {fileID: 5969640620432286434, guid: d625640d68e45cc4f9f18f93c34e8529, type: 3}
   destination: {x: 0, y: 0, z: 0}
+  isLeaving: 0
   speed: 10
 --- !u!114 &4996838384714733352
 MonoBehaviour:
