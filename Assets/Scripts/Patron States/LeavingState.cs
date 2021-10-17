@@ -12,39 +12,37 @@ public class LeavingState : StateBase
     public Vector3 destination;
 
     private PatronSetup ps;
-    public bool isLeaving = false;
+    public CrowdManagerScript cm;
 
     //move speed
     public float speed=10.0f;
     
     public event Action GoToExitEvent;
-    
+
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Enter.LeavingState");
-        //ps = GetComponent<PatronSetup>();
-        isLeaving = true;
-        Debug.Log("1");
+        cm = GetComponent<CrowdManagerScript>();
         GoToExitEvent?.Invoke();
-        Debug.Log("2");
     }
 
     public override void Execute()
     {
         base.Execute();
     }
+    
+    public override void Exit()
+    {
+        base.Exit();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Exit"))
         {
-            Destroy(GameObject.FindWithTag("Patron"));
+            //need to sort this out, ref to cm keeps resetting to nothing?
+            //cm.patronList.Remove(this.gameObject);
+            Destroy(this.gameObject);
         }
-    }
-    
-    public override void Exit()
-    {
-        base.Exit();
     }
 }

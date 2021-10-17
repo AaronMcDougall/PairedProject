@@ -9,6 +9,7 @@ public class KnockedDownState : StateBase
     private GoToPoint movement;
 
     public bool knockedDown = false;
+    public bool isLeaving = false;
 
     public override void Enter()
     {
@@ -70,7 +71,8 @@ public class KnockedDownState : StateBase
         }
         
     }
-    //resets rotation, restores movement; resets health
+    
+    //resets rotation, restores movement; resets health in both cases
     void ResetPatron()
     {
         float aggression = GetComponent<PatronSetup>().aggression;
@@ -83,6 +85,7 @@ public class KnockedDownState : StateBase
 
     void StandAndLeave()
     {
+        isLeaving = true;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         movement.enabled = true;
         Health health = GetComponent<Health>();
