@@ -73,4 +73,9 @@ public class CrowdManagerScript : MonoBehaviour
             RiotEvent?.Invoke();
         }
     }
+
+    void ClearPatronList()
+    {
+        patronList.Clear();
+    }
 }

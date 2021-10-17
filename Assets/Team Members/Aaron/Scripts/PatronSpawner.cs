@@ -78,5 +78,6 @@ public class PatronSpawner : MonoBehaviour
             DestroyImmediate(patron, true);
         }
         PatronList.Clear();
+        cm.patronList.Clear();
     }
 }
