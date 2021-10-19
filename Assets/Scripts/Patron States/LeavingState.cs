@@ -6,19 +6,16 @@ using UnityEngine;
 
 public class LeavingState : StateBase
 {
-    private PatronSetup ps;
-    public CrowdManagerScript cm;
-
     //move speed
     public float speed=10.0f;
-    
     public event Action GoToExitEvent;
 
+    public CrowdManagerScript cm;
+    
     public override void Enter()
     {
         base.Enter();
-        cm = GetComponent<CrowdManagerScript>();
-
+        cm = FindObjectOfType<CrowdManagerScript>();
     }
 
     public override void Execute()
@@ -37,7 +34,7 @@ public class LeavingState : StateBase
         if (other.gameObject.CompareTag("Exit"))
         {
             //need to sort this out, ref to cm keeps resetting to nothing?
-            //cm.patronList.Remove(this.gameObject);
+            cm.patronList.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
     }
