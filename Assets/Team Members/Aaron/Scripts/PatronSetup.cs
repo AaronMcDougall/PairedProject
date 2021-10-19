@@ -6,16 +6,13 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PatronSetup : MonoBehaviour
-{
-    private CrowdManagerScript cm;
-
+{ 
     public int patience;
     public int aggression;
     public int deviance;
 
     private void Start()
     {
-        cm = GetComponent<CrowdManagerScript>();
     }
 
 
@@ -23,7 +20,7 @@ public class PatronSetup : MonoBehaviour
     void Awake()
     {
         patience = Random.Range(10, 100);
-        aggression = Random.Range(0, 100);
+        aggression = Random.Range(0, 75);
         deviance = Random.Range(0, 100);
 
         //start coroutine to build aggression from awake
@@ -58,10 +55,12 @@ public class PatronSetup : MonoBehaviour
     private void OnEnable()
     {
         FindObjectOfType<LeavingState>().GoToExitEvent += NeutralStats;
+        FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
     }
 
     private void OnDisable()
     {
         FindObjectOfType<LeavingState>().GoToExitEvent -= NeutralStats;
+        FindObjectOfType<CrowdManagerScript>().RiotEvent -= Riot;
     }
 }

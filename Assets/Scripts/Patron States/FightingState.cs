@@ -9,7 +9,6 @@ public class FightingState : StateBase
     public StateBase finishFightingState;
     public GameObject target;
     public AudioSource swipeSound;
-
     public event Action GoToBouncerEvent;
 
     public bool inRange;
@@ -18,7 +17,6 @@ public class FightingState : StateBase
     {
         base.Enter();
         Debug.Log("Fight");
-        AggressionThreshold();
 
         GoToBouncerEvent?.Invoke();
     }
@@ -40,11 +38,6 @@ public class FightingState : StateBase
         Debug.Log("Fight Exit");
     }
 
-    public void AggressionThreshold()
-    {
-        
-    }
-    
     //deals damage to player every (3) seconds as long as the target (player) has health
     IEnumerator FightSequence()
     {

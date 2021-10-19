@@ -24,7 +24,7 @@ public class InPosition : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -32,7 +32,7 @@ public class InPosition : MonoBehaviour
         }
     }
     
-    public void OnCollisionExit(Collision other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
