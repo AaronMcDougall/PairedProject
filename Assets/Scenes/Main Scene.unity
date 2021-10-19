@@ -249,7 +249,7 @@ MonoBehaviour:
   patronList:
   - {fileID: 0}
   ps: {fileID: 0}
-  aggressionThreshold: 0
+  aggressionThreshold: 75
   maxCapacity: 20
   capacity: 0
   space: 0
