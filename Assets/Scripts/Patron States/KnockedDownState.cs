@@ -54,7 +54,9 @@ public class KnockedDownState : StateBase
             }
         }
 
+        Debug.Log("3");
         CheckAction();
+        Debug.Log("4");
         knockedDown = false;
     }
 
@@ -63,7 +65,9 @@ public class KnockedDownState : StateBase
         int leaveCheck = Random.Range(0, 99);
         if (leaveCheck < 49)
         {
+            Debug.Log("1");
             ResetPatron();
+            Debug.Log("2");
         }
         else
         {
