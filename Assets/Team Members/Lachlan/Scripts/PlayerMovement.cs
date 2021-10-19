@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("Testing Collider");
+        //Debug.Log("Testing Collider");
             if (other.gameObject.CompareTag("Patron"))
             {
                 target = other.gameObject;
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
 
-        Debug.Log("Testing Collider");
+        //Debug.Log("Testing Collider");
         if (other.gameObject.CompareTag("Patron"))
         {
             target = null;

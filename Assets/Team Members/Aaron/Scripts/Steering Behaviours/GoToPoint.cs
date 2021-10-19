@@ -64,6 +64,7 @@ public class GoToPoint : MonoBehaviour
         //transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
     }
 
+    //moves to exit / leaves club area
     public void GoToExit()
     {
         destinationLoc = GameObject.FindGameObjectWithTag("Exit");
