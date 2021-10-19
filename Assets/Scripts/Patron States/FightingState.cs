@@ -10,6 +10,7 @@ public class FightingState : StateBase
     public GameObject target;
     public AudioSource swipeSound;
     public event Action GoToBouncerEvent;
+    public event Action SwipeEvent;
 
     public bool inRange;
     
@@ -17,7 +18,7 @@ public class FightingState : StateBase
     {
         base.Enter();
         Debug.Log("Fight");
-
+        
         GoToBouncerEvent?.Invoke();
     }
        
@@ -46,7 +47,7 @@ public class FightingState : StateBase
             if (inRange)
             {
                 target.GetComponent<Health>().TakeDamage(10);
-                swipeSound.Play();
+                SwipeEvent?.Invoke();
                 Debug.Log("Hit");
             }
             yield return new WaitForSeconds(3);

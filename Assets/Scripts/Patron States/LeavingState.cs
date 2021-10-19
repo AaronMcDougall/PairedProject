@@ -16,12 +16,12 @@ public class LeavingState : StateBase
     {
         base.Enter();
         cm = FindObjectOfType<CrowdManagerScript>();
+        GoToExitEvent?.Invoke();
     }
 
     public override void Execute()
     {
         base.Execute();
-        GoToExitEvent?.Invoke();
     }
     
     public override void Exit()

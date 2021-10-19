@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,15 +13,49 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        fightingSpeech = gameObject.AddComponent<AudioSource>();
-        leavingSpeech = gameObject.AddComponent<AudioSource>();
-        sneakingSpeech = gameObject.AddComponent<AudioSource>();
-        swipe = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        FindObjectOfType<FightingState>().GoToBouncerEvent += FightingSpeechFunction;
+        FindObjectOfType<FightingState>().SwipeEvent += SwipeSoundFunction;
+        FindObjectOfType<LeavingState>().GoToExitEvent += LeavingSpeechFunction;
+        FindObjectOfType<SneakingState>().GoToSneakingEvent += SneakingSpeechFunction;
+    }
+
+    private void OnDisable()
+    {
+        FindObjectOfType<FightingState>().GoToBouncerEvent -= FightingSpeechFunction;
+        FindObjectOfType<FightingState>().SwipeEvent -= SwipeSoundFunction;
+        FindObjectOfType<LeavingState>().GoToExitEvent -= LeavingSpeechFunction;
+        FindObjectOfType<SneakingState>().GoToSneakingEvent -= SneakingSpeechFunction;
+    }
+
+    private void FightingSpeechFunction()
+    {
+        Debug.Log("SHOULD BE SOUND HERE");
+        
+        fightingSpeech.Play();
+    }
+
+    void SwipeSoundFunction()
+    {
+        swipe.Play();
+    }
+
+    void LeavingSpeechFunction()
+    {
+        leavingSpeech.Play();
+    }
+
+    void SneakingSpeechFunction()
+    {
+        sneakingSpeech.Play();
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Timers;
 using NodeCanvas.Tasks.Actions;
 using Unity.VisualScripting;
@@ -33,8 +34,6 @@ public class CrowdManagerScript : MonoBehaviour
         patronList = new List<GameObject>();
 
         InvokeRepeating("CreateSpace", 2f, 10f);
-        
-        GetCrowdAggression();
     }
 
     void CreateSpace()
@@ -47,9 +46,9 @@ public class CrowdManagerScript : MonoBehaviour
     {
         //I'm hoping that introducing a method of admitting Patrons will help sort this out.
         //As patrons are admitted they will be removed from the list, thus the need to spawn more will arise.
-        if (spawner.PatronList.Count < maxCapacity)
+        if (patronList.Count < maxCapacity)
         {
-            int difference = maxCapacity - spawner.PatronList.Count;
+            var difference = maxCapacity - spawner.PatronList.Count;
             spawner.TrickleSpawn(difference);
         }
 

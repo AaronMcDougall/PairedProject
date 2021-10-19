@@ -16,10 +16,7 @@ public class GoToPoint : MonoBehaviour
     public float speed = 10f;
 
     public bool agro = false;
-
-    public enum Waypoints {Waiting, Bouncer, Goal};
-    Waypoints waypoint;
-
+    
     private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, (speed * Time.deltaTime));
@@ -32,6 +29,7 @@ public class GoToPoint : MonoBehaviour
         FindObjectOfType<SneakingState>().GoToSneakingEvent += GoToGoal;
         FindObjectOfType<LeavingState>().GoToExitEvent += GoToExit;
     }
+    
     private void OnDisable()
     {
         FindObjectOfType<FightingState>().GoToBouncerEvent -= GoToBouncer;
