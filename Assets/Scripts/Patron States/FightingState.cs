@@ -8,7 +8,9 @@ public class FightingState : StateBase
 {
     public StateBase finishFightingState;
     public GameObject target;
-    public AudioSource swipeSound;
+    public AudioSource audioSource;
+    public AudioClip swipeSound;
+    public AudioClip fightingSpeech;
     public event Action GoToBouncerEvent;
     public event Action SwipeEvent;
 
@@ -18,10 +20,11 @@ public class FightingState : StateBase
     {
         base.Enter();
         Debug.Log("Fight");
-        
+
+        audioSource.clip = fightingSpeech;
+        audioSource.Play();
         GoToBouncerEvent?.Invoke();
     }
-       
 
     public override void Execute()
     {
@@ -47,7 +50,8 @@ public class FightingState : StateBase
             if (inRange)
             {
                 target.GetComponent<Health>().TakeDamage(10);
-                SwipeEvent?.Invoke();
+                audioSource.clip = swipeSound;
+                audioSource.Play();
                 Debug.Log("Hit");
             }
             yield return new WaitForSeconds(3);

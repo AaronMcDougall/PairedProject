@@ -9,6 +9,7 @@ public class LeavingState : StateBase
     //move speed
     public float speed=10.0f;
     public event Action GoToExitEvent;
+    public AudioSource leavingSpeech;
 
     public CrowdManagerScript cm;
     
@@ -17,6 +18,7 @@ public class LeavingState : StateBase
         base.Enter();
         cm = FindObjectOfType<CrowdManagerScript>();
         GoToExitEvent?.Invoke();
+        leavingSpeech.Play();
     }
 
     public override void Execute()

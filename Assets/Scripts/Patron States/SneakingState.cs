@@ -7,9 +7,12 @@ using UnityEngine.Events;
 public class SneakingState : StateBase
 {
     public event Action GoToSneakingEvent;
+
+    public AudioSource sneakingSpeech;
     public override void Enter()
     {
         GoToSneakingEvent?.Invoke();
+        sneakingSpeech.Play();
         base.Enter();
     }
 
