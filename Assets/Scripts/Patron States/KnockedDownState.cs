@@ -8,6 +8,9 @@ public class KnockedDownState : StateBase
     private PatronSetup ps;
     private GoToPoint movement;
 
+    public AudioSource audioSource;
+    public AudioClip ow;
+
     public bool knockedDown = false;
     public bool isLeaving = false;
 
@@ -17,6 +20,8 @@ public class KnockedDownState : StateBase
         movement = GetComponent<GoToPoint>();
         ps = GetComponent<PatronSetup>();
         health = GetComponent<Health>();
+        audioSource.clip = ow;
+        audioSource.Play();
         KnockedDown();
     }
 

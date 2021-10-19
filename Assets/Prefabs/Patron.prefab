@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e14ec3d7175afc45a2f1a865062b632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 2238560876498609119}
+  ow: {fileID: 8300000, guid: b566f1f0c6fc7ba4eae3cef1fcd4c325, type: 3}
   knockedDown: 0
   isLeaving: 0
 --- !u!114 &6535897959815678037
@@ -398,7 +400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  leavingSpeech: {fileID: 0}
+  audioSource: {fileID: 2238560876498609119}
+  leavingSpeech: {fileID: 8300000, guid: 808caf4c080eb724d8f30fcdfe121f5f, type: 3}
   cm: {fileID: 0}
 --- !u!114 &4996838384714733352
 MonoBehaviour:
@@ -412,7 +415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efdd5ed02f1c4d4cbdf9bd96efc3f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sneakingSpeech: {fileID: 0}
+  audioSource: {fileID: 2238560876498609119}
+  sneakingSpeech: {fileID: 8300000, guid: 3d74128524fdd52449ad9376b7f23a47, type: 3}
 --- !u!82 &2238560876498609119
 AudioSource:
   m_ObjectHideFlags: 0

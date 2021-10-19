@@ -12,7 +12,6 @@ public class FightingState : StateBase
     public AudioClip swipeSound;
     public AudioClip fightingSpeech;
     public event Action GoToBouncerEvent;
-    public event Action SwipeEvent;
 
     public bool inRange;
     

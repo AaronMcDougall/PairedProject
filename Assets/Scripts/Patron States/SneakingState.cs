@@ -8,11 +8,13 @@ public class SneakingState : StateBase
 {
     public event Action GoToSneakingEvent;
 
-    public AudioSource sneakingSpeech;
+    public AudioSource audioSource;
+    public AudioClip sneakingSpeech;
     public override void Enter()
     {
         GoToSneakingEvent?.Invoke();
-        sneakingSpeech.Play();
+        audioSource.clip = sneakingSpeech;
+        audioSource.Play();
         base.Enter();
     }
 
