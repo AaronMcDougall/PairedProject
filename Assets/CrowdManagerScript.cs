@@ -33,6 +33,8 @@ public class CrowdManagerScript : MonoBehaviour
         patronList = new List<GameObject>();
 
         InvokeRepeating("CreateSpace", 2f, 10f);
+        
+        GetCrowdAggression();
     }
 
     void CreateSpace()

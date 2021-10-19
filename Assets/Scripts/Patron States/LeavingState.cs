@@ -17,7 +17,7 @@ public class LeavingState : StateBase
     public override void Enter()
     {
         base.Enter();
-        //cm = GetComponent<CrowdManagerScript>();
+        cm = GetComponent<CrowdManagerScript>();
 
     }
 
