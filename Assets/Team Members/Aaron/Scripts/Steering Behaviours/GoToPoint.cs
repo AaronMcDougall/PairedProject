@@ -24,18 +24,18 @@ public class GoToPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        FindObjectOfType<FightingState>().GoToBouncerEvent += GoToBouncer;
-        FindObjectOfType<PatientState>().GoToWaitingEvent += GoToWaypoint;
-        FindObjectOfType<SneakingState>().GoToSneakingEvent += GoToGoal;
-        FindObjectOfType<LeavingState>().GoToExitEvent += GoToExit;
+        GetComponent<FightingState>().GoToBouncerEvent += GoToBouncer;
+        GetComponent<PatientState>().GoToWaitingEvent += GoToWaypoint;
+        GetComponent<SneakingState>().GoToSneakingEvent += GoToGoal;
+        GetComponent<LeavingState>().GoToExitEvent += GoToExit;
     }
     
     private void OnDisable()
     {
-        FindObjectOfType<FightingState>().GoToBouncerEvent -= GoToBouncer;
-        FindObjectOfType<PatientState>().GoToWaitingEvent -= GoToWaypoint;
-        FindObjectOfType<SneakingState>().GoToSneakingEvent -= GoToGoal;
-        FindObjectOfType<LeavingState>().GoToExitEvent -= GoToExit;
+        GetComponent<FightingState>().GoToBouncerEvent -= GoToBouncer;
+        GetComponent<PatientState>().GoToWaitingEvent -= GoToWaypoint;
+        GetComponent<SneakingState>().GoToSneakingEvent -= GoToGoal;
+        GetComponent<LeavingState>().GoToExitEvent -= GoToExit;
     }
 
     //moves to (nearest) bouncer

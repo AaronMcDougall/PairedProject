@@ -54,13 +54,13 @@ public class PatronSetup : MonoBehaviour
 
     private void OnEnable()
     {
-        FindObjectOfType<LeavingState>().GoToExitEvent += NeutralStats;
+        GetComponent<LeavingState>().GoToExitEvent += NeutralStats;
         FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
     }
 
     private void OnDisable()
     {
-        FindObjectOfType<LeavingState>().GoToExitEvent -= NeutralStats;
+        GetComponent<LeavingState>().GoToExitEvent -= NeutralStats;
         FindObjectOfType<CrowdManagerScript>().RiotEvent -= Riot;
     }
 }
