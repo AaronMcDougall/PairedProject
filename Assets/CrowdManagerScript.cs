@@ -12,7 +12,7 @@ using UnityEngine.Events;
 
 public class CrowdManagerScript : MonoBehaviour
 {
-    public List<GameObject> patronList;
+    public List<GameObject> PatronList;
 
     private PatronSpawner spawner;
     public PatronSetup ps;
@@ -31,7 +31,7 @@ public class CrowdManagerScript : MonoBehaviour
     {
         spawner = GetComponent<PatronSpawner>();
         ps = GetComponent<PatronSetup>();
-        patronList = new List<GameObject>();
+        PatronList = new List<GameObject>();
 
         InvokeRepeating("CreateSpace", 2f, 10f);
     }
@@ -46,13 +46,13 @@ public class CrowdManagerScript : MonoBehaviour
     {
         //I'm hoping that introducing a method of admitting Patrons will help sort this out.
         //As patrons are admitted they will be removed from the list, thus the need to spawn more will arise.
-        if (patronList.Count < maxCapacity)
+        if (PatronList.Count < maxCapacity)
         {
             var difference = maxCapacity - spawner.PatronList.Count;
             spawner.TrickleSpawn(difference);
         }
 
-        if (patronList.Count > 0)
+        if (PatronList.Count > 0)
         {
             GetCrowdAggression();
         }
@@ -62,12 +62,12 @@ public class CrowdManagerScript : MonoBehaviour
     {
         int totalAggression = 0;
         
-        foreach (var patron in patronList)
+        foreach (var patron in PatronList)
         {
             totalAggression += patron.GetComponent<PatronSetup>().aggression;
         }
 
-        crowdAggression = totalAggression / patronList.Count;
+        crowdAggression = totalAggression / PatronList.Count;
 
         if (crowdAggression > aggressionThreshold)
         {
@@ -77,6 +77,6 @@ public class CrowdManagerScript : MonoBehaviour
 
     void ClearPatronList()
     {
-        patronList.Clear();
+       PatronList.Clear();
     }
 }

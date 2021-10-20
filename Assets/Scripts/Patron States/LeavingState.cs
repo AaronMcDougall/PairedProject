@@ -38,7 +38,7 @@ public class LeavingState : StateBase
         if (other.gameObject.CompareTag("Exit"))
         {
             //need to sort this out, ref to cm keeps resetting to nothing?
-            cm.patronList.Remove(this.gameObject);
+            cm.PatronList.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
     }

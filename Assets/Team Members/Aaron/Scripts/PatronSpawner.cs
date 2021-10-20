@@ -67,7 +67,7 @@ public class PatronSpawner : MonoBehaviour
     //crowd list for crowd manager
     void AddToCrowdList(GameObject dude)
     {
-        cm.patronList.Add(dude);
+        cm.PatronList.Add(dude);
     }
 
     //deletes any spawned patrons
@@ -78,6 +78,6 @@ public class PatronSpawner : MonoBehaviour
             DestroyImmediate(patron, true);
         }
         PatronList.Clear();
-        cm.patronList.Clear();
+        cm.PatronList.Clear();
     }
 }
