@@ -20,7 +20,6 @@ public class CarInput : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
     }
 
     // Update is called once per frame
@@ -35,11 +34,10 @@ public class CarInput : MonoBehaviour
         //Rotation
         LookLeft=InputSystem.GetDevice<Keyboard>().aKey.isPressed;
         LookRight=InputSystem.GetDevice<Keyboard>().dKey.isPressed;
-
-
-        //var MoveForward = InputSystem.GetDevice<Keyboard>().upArrowKey.isPressed;
-        //Input.GetButtonDown($"W");
-        //Forward();
+        
+        //localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+        
+        
         MoveForward();
         MoveDownward();
         MoveLeft();
@@ -62,7 +60,7 @@ public class CarInput : MonoBehaviour
         if (Backward == true)
         {
             rb.AddRelativeForce(new Vector3(0, 0, -1) * speed);
-            rb.AddRelativeForce(new Vector3(0, 0, -1) * speed/2);
+            rb.AddRelativeForce(new Vector3(0, 0, 1) * speed/2);
         }
     }
 
