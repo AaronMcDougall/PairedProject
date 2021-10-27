@@ -5,6 +5,9 @@ using UnityEngine;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using NodeCanvas.Tasks.Conditions;
+using Unity.VisualScripting;
+using UnityEngine.ProBuilder.MeshOperations;
 using Color = UnityEngine.Color;
 
 public class ScanningGrid : MonoBehaviour
@@ -36,7 +39,10 @@ public class ScanningGrid : MonoBehaviour
 
         public int fCost
         {
-            get { return gCost + hCost; }
+            get
+            {
+                return gCost + hCost;
+            }
         }
     }
 
@@ -77,6 +83,7 @@ public class ScanningGrid : MonoBehaviour
         //get percentage of location across world grid
         float percentX = (worldPos.x + worldSize.x / 2) / worldSize.x;
         float percentY = (worldPos.y + worldSize.y / 2) / worldSize.y;
+        
         //clamp between 0 and 1 
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
@@ -92,13 +99,17 @@ public class ScanningGrid : MonoBehaviour
     //void/List GetNeighbours()
     public List<Node> GetNeighbours(Node node)
     {
+        Vector3 nodePos = new Vector3(pf.beginning.position.x, pf.beginning.position.y, pf.beginning.position.z);
+        int nodePointX = Mathf.RoundToInt(nodePos.x);
+        int nodePointY = Mathf.RoundToInt(nodePos.y);
+        
         //checking neighbours surrounding currentNode
-        for (int x = -1; x <= 1; x++)
+        for (int x = (nodePointX -1); x < (nodePointX + 2); x++)
         {
-            for (int y = -1; y <= 1; y++)
+            for (int y = (nodePointY -1); y < (nodePointY + 2); y++)
             {
                 //skip currentNode
-                if (x == 0 && y == 0 || node.isBlocked)
+                if (x == nodePointX && y == nodePointY || node.isBlocked)
                 {
                     continue;
                 }
@@ -107,23 +118,20 @@ public class ScanningGrid : MonoBehaviour
                 {
                     var checkX = node.gridX + x;
                     var checkY = node.gridY + y;
-                    Debug.Log("X = " + checkX);
-                    Debug.Log("Y + " + checkY);
+
+                    neighbours.Add(grid[checkX, checkY]);
 
                     //check neighbouring nodes are inside the world grid
-                    if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                    /*if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                     {
                         neighbours.Add(grid[checkX, checkY]);
-                    }
-
-                    Debug.Log("Neighbours = " + neighbours.Count());
+                    }*/
                 }
             }
         }
 
         return neighbours;
     }
-
 
     public List<Node> path;
 
@@ -139,19 +147,19 @@ public class ScanningGrid : MonoBehaviour
             {
                 if (grid != null && grid[x, y].isBlocked)
                 {
-                    Gizmos.color = Color.magenta;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one);
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
                 }
                 else
                 {
-                    Gizmos.color = Color.green;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one);
+                    Gizmos.color = Color.white;
+                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
                 }
 
-                foreach (var n in neighbours)
+                if (neighbours.Contains(grid[x,y]))
                 {
                     Gizmos.color = Color.blue;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one);
+                    Gizmos.DrawCube(new Vector3(x,y,0), Vector3.one * (nodeSize - 0.1f));
                 }
             }
         }

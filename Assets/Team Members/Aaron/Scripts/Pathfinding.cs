@@ -7,8 +7,6 @@ using UnityEngine.ProBuilder.MeshOperations;
 
 public class Pathfinding : MonoBehaviour
 {
-    private ScanningGrid.Node node;
-
     public Transform beginning, finish;
 
     private Vector3 beginningPos;
@@ -21,7 +19,6 @@ public class Pathfinding : MonoBehaviour
 
     private void Start()
     {
-        node = GetComponent<ScanningGrid.Node>();
         grid = GetComponent<ScanningGrid>();
         FindPath(beginning.position, finish.position);
     }
@@ -36,35 +33,14 @@ public class Pathfinding : MonoBehaviour
     {
         ScanningGrid.Node startNode = grid.NodeFromWorldPos(startPos);
         ScanningGrid.Node endNode = grid.NodeFromWorldPos(endPos);
-        
-        //why are the lists in here (local) and not set as normal?
-
 
         openSet.Add(startNode);
+        Debug.Log(startNode);
 
         while (openSet.Count > 0)
         {
             //creates node for current space; assigns to list
             ScanningGrid.Node currentNode = openSet[0];
-
-            /*for (int x = -1; x < 2; x++)
-            {
-                for (int y = -1; y < 2; y++)
-                {
-
-                    
-                    if (x == 0 && y == 0)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        var checkX = node.gridX + x;
-                        var checkY = node.gridY + y;
-                        openSet.Add(grid[checkX, checkY]);
-                    }
-                }
-            }*/
 
             //starts the loop at the neighbours
             for (int i = 1; i < openSet.Count; i++)
@@ -77,6 +53,37 @@ public class Pathfinding : MonoBehaviour
                 }
 
                 Debug.Log("OpenSet = " + openSet.Count);
+                
+                foreach (var neighbour in grid.GetNeighbours(currentNode))
+                {
+                    //if so, skip it
+                    if (neighbour.isBlocked = true || closedSet.Contains(currentNode))
+                    {
+                        continue;
+                    }
+                
+                    //I don't think this is running correctly
+                    else
+                    {
+                        //checking if neighbour is shorter than previous path or not in openSet
+                        int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                        if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                        {
+                            //set gCost; hCost of neighbour
+                            neighbour.gCost = newCostToNeighbour;
+                            neighbour.hCost = GetDistance(neighbour, endNode);
+                            //makes neighbour a parent (Node)
+                            neighbour.parent = currentNode;
+
+                            //if neighbour is not in openSet, add it to there
+                            if (!openSet.Contains(neighbour))
+                            {
+                                openSet.Add(neighbour);
+                            }
+                        }
+                    }
+                }
+                
             }
             
             openSet.Remove(currentNode);
@@ -90,34 +97,7 @@ public class Pathfinding : MonoBehaviour
             }
             
             //check the neighbours in list for traversable/already visited
-            foreach (var neighbour in grid.GetNeighbours(currentNode))
-            {
-                //if so, skip it
-                if (neighbour.isBlocked = true || closedSet.Contains(currentNode))
-                {
-                    continue;
-                }
-                else
-                {
-                    //checking if neighbour is shorter than previous path or not in openSet
-                    int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
-                    if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
-                    {
-                        //set gCost; hCost of neighbour
-                        neighbour.gCost = newCostToNeighbour;
-                        neighbour.hCost = GetDistance(neighbour, endNode);
-                        //makes neighbour a parent (Node)
-                        neighbour.parent = currentNode;
-
-                        //if neighbour is not in openSet, add it to there
-                        if (!openSet.Contains(neighbour))
-                        {
-                            openSet.Add(neighbour);
-                        }
-                    }
-                }
-                
-            }
+            
            
         }
     }
