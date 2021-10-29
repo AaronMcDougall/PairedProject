@@ -11,17 +11,14 @@ public class PatronSetup : MonoBehaviour
     public int aggression;
     public int deviance;
 
-    private void Start()
-    {
-    }
-
+    public bool inPosition;
 
     //determines and assigns random values to all three stats on spawn
     void Awake()
     {
         patience = Random.Range(10, 100);
         aggression = Random.Range(0, 75);
-        deviance = Random.Range(0, 100);
+        deviance = Random.Range(30, 45);
 
         //start coroutine to build aggression from awake
         StartCoroutine(GetAngry());
@@ -52,10 +49,22 @@ public class PatronSetup : MonoBehaviour
         StopCoroutine(GetAngry());
     }
 
+    void WayBlocked()
+    {
+        inPosition = true;
+    }
+
+    void WayClear()
+    {
+        inPosition = false;
+    }
+    
     private void OnEnable()
     {
         GetComponent<LeavingState>().GoToExitEvent += NeutralStats;
         FindObjectOfType<CrowdManagerScript>().RiotEvent += Riot;
+        FindObjectOfType<InPosition>().inPositionEvent += WayBlocked;
+        FindObjectOfType<InPosition>().outOfPositionEvent += WayClear;
     }
 
     private void OnDisable()

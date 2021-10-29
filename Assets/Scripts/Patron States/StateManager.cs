@@ -40,21 +40,18 @@ public class StateManager : MonoBehaviour
     public void StartAFight()
     {
         ChangeState(fightingState);
-        //enter fighting state
         Debug.Log("Had Enough");
     }
 
     public void WaitInLine()
     {
         ChangeState(patientState);
-        //enter waiting state
         Debug.Log("Waiting in Line");
     }
 
     public void SneakAround()
     {
         ChangeState(sneakingState);
-        //enter sneaking state
         Debug.Log("Sneaking In");
     }
 

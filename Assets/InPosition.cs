@@ -7,17 +7,10 @@ using UnityEngine;
 public class InPosition : MonoBehaviour
 {
     public bool inPosition;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public event Action outOfPositionEvent;
+    public event Action inPositionEvent;
+
 
     void ChangeBool()
     {
@@ -29,6 +22,8 @@ public class InPosition : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inPosition = true;
+            inPositionEvent?.Invoke();
+
         }
     }
     
@@ -37,6 +32,7 @@ public class InPosition : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inPosition = false;
+            outOfPositionEvent?.Invoke();
         }
     }
 }

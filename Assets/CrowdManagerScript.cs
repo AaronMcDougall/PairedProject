@@ -48,7 +48,7 @@ public class CrowdManagerScript : MonoBehaviour
         //As patrons are admitted they will be removed from the list, thus the need to spawn more will arise.
         if (PatronList.Count < maxCapacity)
         {
-            var difference = maxCapacity - spawner.PatronList.Count;
+            var difference = maxCapacity - PatronList.Count;
             spawner.TrickleSpawn(difference);
         }
 

@@ -14,6 +14,7 @@ public class SneakingState : StateBase
     {
         GoToSneakingEvent?.Invoke();
         audioSource.clip = sneakingSpeech;
+        audioSource.volume = 50;
         audioSource.Play();
         base.Enter();
     }
