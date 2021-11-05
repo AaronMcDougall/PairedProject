@@ -15,15 +15,13 @@ public class ScanningGrid : MonoBehaviour
     public LayerMask layer;
     public Vector2Int worldSize;
 
-    private Pathfinding pf;
-
     public Node[,] grid;
 
     public int gridSizeX;
     public int gridSizeY;
 
     private int nodeSize = 1;
-    List<Node> neighbours = new List<Node>();
+
 
     public class Node
     {
@@ -32,6 +30,8 @@ public class ScanningGrid : MonoBehaviour
 
         public int gridX;
         public int gridY;
+
+        public Vector2Int coords;
 
         public int gCost;
         public int hCost;
@@ -46,7 +46,6 @@ public class ScanningGrid : MonoBehaviour
 
     private void Start()
     {
-        pf = GetComponent<Pathfinding>();
         //still need to attach grid to level btw
 
         //how many grid spots in the world
@@ -76,7 +75,7 @@ public class ScanningGrid : MonoBehaviour
     }
 
     //get node from world point
-    public Node NodeFromWorldPos(Vector3 worldPos)
+    public Node NodeFromWorldPos(Vector2 worldPos)
     {
         //get percentage of location across world grid
         float percentX = (worldPos.x + worldSize.x / 2) / worldSize.x;
@@ -92,36 +91,6 @@ public class ScanningGrid : MonoBehaviour
 
         //sends world location to the 2D array
         return grid[x, y];
-    }
-
-    //void/List GetNeighbours()
-    public List<Node> GetNeighbours(Node node)
-    {
-        Vector3 nodePos = new Vector3(pf.beginning.position.x, pf.beginning.position.y, pf.beginning.position.z);
-        int nodePointX = Mathf.RoundToInt(nodePos.x);
-        int nodePointY = Mathf.RoundToInt(nodePos.y);
-
-        //checking neighbours surrounding currentNode
-        for (int x = (nodePointX - 1); x < (nodePointX + 2); x++)
-        {
-            for (int y = (nodePointY - 1); y < (nodePointY + 2); y++)
-            {
-                //skip currentNode
-                if (x == nodePointX && y == nodePointY || grid[x, y].isBlocked)
-                {
-                    continue;
-                }
-                else
-                {
-                    var checkX = node.gridX + x;
-                    var checkY = node.gridY + y;
-
-                    neighbours.Add(grid[checkX, checkY]);
-                }
-            }
-        }
-
-        return neighbours;
     }
 
     public List<Node> path;
@@ -147,13 +116,6 @@ public class ScanningGrid : MonoBehaviour
                     Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
                 }
 
-                /*if (neighbours.Contains(grid[x, y]))
-                {
-                    Gizmos.color = Color.blue;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
-                }*/
-
-
                 foreach (var node in grid)
                 {
                     if (path != null)
@@ -165,23 +127,7 @@ public class ScanningGrid : MonoBehaviour
                         }
                     }
                 }
-
-                if (pf.openSet.Contains(grid[x, y]))
-                {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
-                }
-
-                /*if (pf.closedSet.Contains(grid[x, y]))
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawCube(new Vector3(x, y, 0), Vector3.one * (nodeSize - 0.1f));
-                }*/
             }
-
-
-
         }
-
     }
 }
